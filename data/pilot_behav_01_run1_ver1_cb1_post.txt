@@ -1,0 +1,4 @@
+Guess about targets:	yes, golf targets preceded by a black square required \na change in trajectory. the ball needed to be \ndirected to the right of the targets in a curved \nmanner.
+numbers:	11111111
+movements:	21434123
+forced crct:	1432-1234-1-243-124-32-143-2421-

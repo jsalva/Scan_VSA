@@ -1,4 +1,4 @@
-Scan_VSA
-========
+VSA
+===
 
-Visuomotor Sqeuence / Adaption fMRI paradigm
+Visuomotor Sequence / Adaption fMRI learning paradigm for psychtoolbox

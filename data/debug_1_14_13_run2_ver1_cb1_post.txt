@@ -1,0 +1,4 @@
+Guess about targets:	
+numbers:	12341234
+movements:	11111111
+forced crct:	2-4-31-3-24-2-3-1-
