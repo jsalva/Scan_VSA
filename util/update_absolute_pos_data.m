@@ -1,4 +1,4 @@
-function position = update_absolute_pos_data(position)
+function position = update_absolute_pos_data(position,reverse_y)
 %obtain pixel to distance conversion from position object properties
 %(for readability)
 global TARGET_DIST_FROM_CENTER_MM
@@ -53,7 +53,9 @@ current_radius_mm = TARGET_DIST_FROM_CENTER_MM*mg_ratio;
 [x_mm,y_mm] = pol2cart(th,current_radius_mm);
 x_pix = x_mm/x_pix2mm;
 y_pix = y_mm/y_pix2mm;
-
+if reverse_y
+   y_pix = -y_pix; 
+end
 
 %get current position coords
 x_pos_pix = x_pix + origin(3);

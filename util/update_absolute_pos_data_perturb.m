@@ -1,7 +1,8 @@
-function position = update_absolute_pos_data_perturb(position,PERTURBATION_ANGLE)
+function position = update_absolute_pos_data_perturb(position,reverse_y,PERTURBATION_ANGLE)
 %save local copy of current time since start
 t = GetSecs()-position.t0; 
 
+global TARGET_DIST_FROM_CENTER_MM
 %obtain pixel to distance conversion from position object properties
 %(for readability)
 x_pix2mm = position.screen_properties.width_mm/position.screen_properties.width_res_pix;
@@ -32,17 +33,35 @@ y_mid = round(y_range/2);
 x_state = PsychHID('RawState',jstick,x_element);
 y_state = PsychHID('RawState',jstick,y_element);
 
+x_state_from_center = x_state - x_mid;
+y_state_from_center = y_state - y_mid;
 
-x_pos_normalized = (x_state - x_mid) / (x_max - x_mid);
-y_pos_normalized = (y_state - y_mid) / (y_max - y_mid);
 
-x_width = origin(3)*2;
-y_height = origin(4)*2;
+[th,mg] = cart2pol(x_state_from_center,y_state_from_center);
 
+th_restricted = mod(th,pi/2);
+th_crit = atan2(y_range,x_range);
+if th_restricted > th_crit
+    y_max = y_max - y_mid;
+    x_max = y_max/tan(th_restricted);
+elseif th_restricted <= th_crit
+    x_max = x_max - x_mid;
+    y_max = x_max*tan(th_restricted);
+end
+[th_max,mg_max] = cart2pol(x_max,y_max);
+
+mg_ratio = mg/mg_max;
+current_radius_mm = TARGET_DIST_FROM_CENTER_MM*mg_ratio;
+[x_mm,y_mm] = pol2cart(th,current_radius_mm);
+x_pix = x_mm/x_pix2mm;
+y_pix = y_mm/y_pix2mm;
+if reverse_y
+   y_pix = -y_pix; 
+end
 
 %get current position coords
-x_pos_pix = x_pos_normalized*origin(3)+origin(3);
-y_pos_pix = y_pos_normalized*origin(4)+origin(4);
+x_pos_pix = x_pix + origin(3);
+y_pos_pix = y_pix + origin(4);
 %convert position vector from cartesian (x,y) to polar (theta,magnitude)
 
 
