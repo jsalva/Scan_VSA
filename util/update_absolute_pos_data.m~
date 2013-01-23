@@ -50,14 +50,20 @@ end
 
 mg_ratio = mg/mg_max;
 current_radius_mm = TARGET_DIST_FROM_CENTER_MM*mg_ratio;
-[x_mm,y_mm] = pol2cart(th,current_radius_mm);
-x_pix = x_mm/x_pix2mm;
-y_pix = y_mm/y_pix2mm;
+[x,y] = 
+
+%x_pos_normalized = (x_state - x_mid) / (x_max - x_mid);
+%y_pos_normalized = (y_state - y_mid) / (y_max - y_mid);
+
+
+%x_width = origin(3)*2;
+%y_height = origin(4)*2;
 
 
 %get current position coords
-x_pos_pix = x_pix + origin(3);
-y_pos_pix = y_pix + origin(4);
+x_pos_pix = ;%x_pos_normalized*origin(3)+origin(3);
+y_pos_pix = ;%y_pos_normalized*origin(4)+origin(4);
+
 
 
 %convert to a psychtoolbox "rect"
