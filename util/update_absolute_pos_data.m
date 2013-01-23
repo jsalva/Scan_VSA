@@ -1,6 +1,8 @@
 function position = update_absolute_pos_data(position)
 %obtain pixel to distance conversion from position object properties
 %(for readability)
+global TARGET_DIST_FROM_CENTER_MM
+
 x_pix2mm = position.screen_properties.width_mm/position.screen_properties.width_res_pix;
 y_pix2mm = position.screen_properties.height_mm/position.screen_properties.height_res_pix;
 
@@ -29,17 +31,17 @@ y_mid = round(y_range/2);
 x_state = PsychHID('RawState',jstick,x_element);
 y_state = PsychHID('RawState',jstick,y_element);
 
-
 x_pos_normalized = (x_state - x_mid) / (x_max - x_mid);
 y_pos_normalized = (y_state - y_mid) / (y_max - y_mid);
 
-x_width = origin(3)*2;
-y_height = origin(4)*2;
+
+%x_width = origin(3)*2;
+%y_height = origin(4)*2;
 
 
 %get current position coords
-x_pos_pix = x_pos_normalized*origin(3)+origin(3);
-y_pos_pix = y_pos_normalized*origin(4)+origin(4);
+x_pos_pix = ;%x_pos_normalized*origin(3)+origin(3);
+y_pos_pix = ;%y_pos_normalized*origin(4)+origin(4);
 
 
 
