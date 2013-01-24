@@ -296,6 +296,7 @@ for i = 1:NUMBER_OF_TARGETS
     target(i).rect = rect_subtend_distance_mm(subtends);
 end
 
+
 %initialize 'home' position (origin in this case)
 home.cartesian_coords = [0 0];
 home.screen_position = screen_properties.origin;
@@ -440,9 +441,9 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
             end
 
         case 'trial'
-            %if ~freeze
+            
             target_num = TRIAL(trial).target;
-            %get polar 'theta' for current target, and get current position
+            
             if TRIAL(trial).perturb
                 position.target_theta = target(target_num).polar_coords(1) - PERTURBATION_ANGLE;
                 position = update_absolute_pos_data_perturb(position, reverse_y_bool, PERTURBATION_ANGLE);
@@ -450,16 +451,16 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
                 position.target_theta = target(target_num).polar_coords(1);
                 position = update_absolute_pos_data(position,reverse_y_bool);
             end
-            %convert mouse position to polar
+            
             mag_d = position.polar(size(position.polar,1),2);
             theta_d = position.polar(size(position.polar,1),1);
-            %calculate cursor rect
+            
             cursor_subtends.center_on_position = position.rect(size(position.rect,1),:);
             cursor_rect = rect_subtend_distance_mm(cursor_subtends);
-            %draw cursor and target
+            
             Screen('DrawTexture',mainWin,target_tex,[],target(target_num).rect);
             Screen('DrawTexture',mainWin,cursor_tex,[],cursor_rect);
-            %handle target reached early:
+            
             if mag_d > TARGET_DIST_FROM_CENTER_MM - TARGET_RADIUS_MM 
                 
                 if first_trial_iteration
@@ -481,18 +482,13 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
                         end
 
                         time = GetSecs - position.t0;
-                        %two "trial duration" measures - first is the onset
-                        %of crossing the 10cm boundary, and the second is
-                        %that + whatever time it took to stay there for
-                        %TIME_ON_TARGET
+                        
                         position.time_to_target_from_trial_onset(trial) = target_onset - position.trial_onset(trial);
                         position.time_to_target_from_trial_onset_final(trial) = time - position.trial_onset(trial);
-                        %same for end point errors
+                        
                         position.end_point_error(trial) = position.error_theta(endpoint);
                         position.end_point_error_final(trial) = position.error_theta(length(position.error_theta));
                         
-                        %base feedback on the "final" error, after sitting
-                        %there for TIME_ON_TARGET seconds
                         if abs(position.end_point_error_final(trial)) < MAX_SUCCESS_THETA
                            PsychPortAudio('FillBuffer',audiohandle,pleasant_data);
                            PsychPortAudio('Start',audiohandle,1,0,1);
@@ -503,8 +499,6 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
                            feedback = 0;
                         end
 
-                        %only care about error during trajectory, not
-                        %holding it at/beyond the endpoint
                         positive_error = abs(position.magerror_vec(1:endpoint));
                         [max_error_mag,max_index] = nanmax(positive_error);
                         
@@ -549,11 +543,92 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
             end
     
         case 'return'
-            %used to center the ball
-            %but now presents target in the center
-            cursor_subtends.center_on_position = screen_properties.origin;
+            
+            if TRIAL(trial).perturb
+                position = update_absolute_pos_data_perturb(position, reverse_y_bool, PERTURBATION_ANGLE);
+            else
+                position = update_absolute_pos_data(position,reverse_y_bool);
+            end
+            
+            mag_d = position.polar(size(position.polar,1),2);
+            theta_d = position.polar(size(position.polar,1),1);
+            
+            cursor_subtends.center_on_position = position.rect(size(position.rect,1),:);
             cursor_rect = rect_subtend_distance_mm(cursor_subtends);
+            
+            Screen('DrawTexture',mainWin,target_tex,[],home.rect);
             Screen('DrawTexture',mainWin,cursor_tex,[],cursor_rect);
+            
+            if mag_d < TARGET_RADIUS_MM 
+                
+                if first_trial_iteration
+                   return_onset = GetSecs - position.t0;
+                   endpoint = length(position.error_theta);
+                   nth_return_onset = return_onset;
+                   first_return_iteration = false;
+                end
+                
+                time_on_target = (GetSecs - position.t0) - nth_return_onset; 
+                
+                    if time_on_target >= EVENT_QUEUE(event_counter).TIME_ON_TARGET
+                        trial_type = 0;
+                        time = GetSecs - position.t0;
+                        
+                        time_to_target_from_return_onset = return_onset - position.return_onset(trial);
+                        time_to_target_from_return_onset_final = time - position.return_onset(trial);
+                        
+                        %error is meaningless for return
+                        end_point_error = 0;%position.error_theta(endpoint);
+                        end_point_error_final = 0;%position.error_theta(length(position.error_theta));
+                        
+                        PsychPortAudio('FillBuffer',audiohandle,pleasant_data);
+                        PsychPortAudio('Start',audiohandle,1,0,1);
+                        feedback = 1;
+
+                        positive_error = abs(position.magerror_vec(1:endpoint));
+                        [max_error_mag,max_index] = nanmax(positive_error);
+                        
+                        positive_d_projection = [0,abs(diff(position.magproj_vec(1:endpoint)))];
+                        if nansum(positive_d_projection) > 0
+                            max_error_pos_as_percent = 100 * nansum(positive_d_projection(1:max_index)) / nansum(positive_d_projection);
+                            error_accumulated_over_trajectory = nansum(positive_error .* positive_d_projection );
+                            avg_error_mag = error_accumulated_over_trajectory / nansum(positive_d_projection);
+                        else
+                            max_error_pos_as_percent = 0;
+                            error_accumulated_over_trajectory = 0;
+                            avg_error_mag = 0;
+                        end
+                        formatstring = '%d\t%d\t%d\t%d\t%f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n';
+                        fprintf(fileid,formatstring,[repmat(trial,length(position.xyt(2:end,3)),1),repmat(trial_type,length(position.xyt(2:end,3)),1),(position.xyt(2:end,3)>position.trial_onset(trial)),repmat(target_num,length(position.xyt(2:end,3)),1),position.xyt(2:end,3),position.xyt(2:end,1:2), position.velxyt(2:end,1:2), position.accelxyt(2:end,1:2), position.error_vec(2:end,1:2), position.proj_onto_targ(2:end,1:2)]');
+
+                        summaryformatstring = '%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n';
+
+                        fprintf(summaryfile,summaryformatstring,[trial,trial_type,target_num,position.time_to_target_from_trial_onset(trial),position.end_point_error(trial),avg_error_mag,error_accumulated_over_trajectory,max_error_mag,max_error_pos_as_percent,feedback,within_time_limit]);
+
+                        position.xyt = [0 0 0];
+                        position.velxyt = [0 0 0];
+                        position.accelxyt = [0 0 0];
+                        position.error_vec = [0 0];
+                        position.proj_onto_targ = [0 0];
+                        trial_type = [0];
+                        position.error_theta = [0];
+                        position.rect = [0 0 0 0];
+                        position.polar = [0 0];
+                        position.error_x_dproj_vec = [0];
+                        position.dproj_vec = [0];
+                        position.magerror_vec = [0];
+                        position.magproj_vec = [0];
+                        next_event = true;
+                        first_trial_iteration = true;
+
+                    end
+            
+            else
+                nth_target_onset = GetSecs - position.t0;
+                time_on_target = 0;
+            end            
+            
+            
         case 'rest'
             Screen('TextSize',mainWin,50);
             DrawFormattedText(mainWin,'+','center','center',black);
@@ -610,7 +685,7 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
             case 'trial'
                 position.trial_onset(trial) = flip_time;
             case 'return'
-                position.iti_onset(trial) = flip_time;
+                position.return_onset(trial) = flip_time;
             case 'rest'
                 position.rest_onset(trial) = flip_time;
         end        
