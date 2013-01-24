@@ -1,4 +1,4 @@
-function test_joystick_VSA(subject_id,run,version,counterbalance,reverse_y_bool)
+function test_joystick_VSA(subject_id,run,counterbalance,reverse_y_bool)
 
 Screen('Preference', 'SkipSyncTests', 1)
 
@@ -9,20 +9,20 @@ debug=false;
 global last_refresh;
 last_refresh = GetSecs;
 
-filename = ['./data/',subject_id,'_run',num2str(run),'_ver',num2str(version),'_cb',num2str(counterbalance),'_data.txt'];
+filename = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_data.txt'];
 fileid = fopen(filename,'w');
 headerstring = '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n';
 fprintf(fileid,headerstring,'Trial','Type','Target/Home(1,0)','Target #','Time(s)','Xpos','Ypos','Xvel','Yvel','Xaccel','Yaccel','Xerror','Yerror','Xprojection','Yprojection');
 
-summary_file = ['./data/',subject_id,'_run',num2str(run),'_ver',num2str(version),'_cb',num2str(counterbalance),'_summary.txt'];
+summary_file = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_summary.txt'];
 summaryfile = fopen(summary_file,'w');
 summaryheader = '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n';
 fprintf(summaryfile,summaryheader,'Trial','Type','Target #','Time to Target','Endpoint Error','Est. Avg. Error Mag','Accum. Error x dMagProj', 'Max Error Mag.','Max Error Pos. (% of trajectory)','Feedback','Reached Target');
 
-post_file = ['./data/',subject_id,'_run',num2str(run),'_ver',num2str(version),'_cb',num2str(counterbalance),'_post.txt'];
+post_file = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_post.txt'];
 postfile = fopen(post_file,'w');
 
-event_log = ['./data/',subject_id,'_run',num2str(run),'_ver',num2str(version),'_cb',num2str(counterbalance),'_event.log'];
+event_log = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_event.log'];
 eventlog = fopen(event_log,'w');
 key_format = '%s\t%.4f\n';
 notice_format = '%s\n';
@@ -451,18 +451,10 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
                 %get polar 'theta' for current target, and get current position
                 if TRIAL(trial).perturb
                     position.target_theta = target(target_num).polar_coords(1) - PERTURBATION_ANGLE;
-                    if reverse_y_bool
-                        position = update_pos_data_perturb_reverse_y(position,PERTURBATION_ANGLE);
-                    else
-                        position = update_pos_data_perturb(position,PERTURBATION_ANGLE);
-                    end
+                    position = update_absolute_pos_data_perturb(position, reverse_y_bool, PERTURBATION_ANGLE);
                 else
                     position.target_theta = target(target_num).polar_coords(1);
-                    if reverse_y_bool
-                        position = update_pos_data_reverse_y(position);    
-                    else
-                        position = update_absolute_pos_data(position);
-                    end
+                    position = update_absolute_pos_data(position,reverse_y_bool);
                 end
                 %convert mouse position to polar
                 mag_d = position.polar(size(position.polar,1),2);
@@ -931,12 +923,9 @@ if run == 2
         if BETWEEN_STIMULI
             SetMouse(screen_properties.origin(3),screen_properties.origin(4), mainWin);
         end
-        if reverse_y_bool
-            position = update_pos_data_reverse_y(position);            
-        else
-            position = update_absolute_pos_data(position);
-        end
-        %get polar coords of current pos
+
+        position = update_absolute_pos_data(position,reverse_y_bool);
+
         mag_d = position.polar(size(position.polar,1),2);
         theta_d = position.polar(size(position.polar,1),1);
 
@@ -1058,11 +1047,8 @@ if run == 2
             SetMouse(screen_properties.origin(3),screen_properties.origin(4), mainWin);
         end
 
-        if reverse_y_bool
-            position = update_pos_data_reverse_y(position);            
-        else
-            position = update_absolute_pos_data(position);
-        end
+
+        position = update_absolute_pos_data(position,reverse_y_bool);
 
         %get polar coords of current pos
         mag_d = position.polar(size(position.polar,1),2);
