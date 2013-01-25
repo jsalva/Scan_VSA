@@ -17,7 +17,7 @@ fprintf(fileid,headerstring,'Trial','Type','Target/Home(1,0)','Target #','Time(s
 summary_file = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_summary.txt'];
 summaryfile = fopen(summary_file,'w');
 summaryheader = '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n';
-fprintf(summaryfile,summaryheader,'Trial','Type','Target #','Time to Target','Endpoint Error','Est. Avg. Error Mag','Accum. Error x dMagProj', 'Max Error Mag.','Max Error Pos. (% of trajectory)','Feedback','Reached Target');
+fprintf(summaryfile,summaryheader,'Trial','Type','Target #','Time to Target','Endpoint Error','Est. Avg. Error Mag','Accum. Error x dMagProj', 'Max Error Mag.','Max Error Pos. (% of trajectory)','Feedback','Target (1)/Return (0)');
 
 post_file = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_post.txt'];
 postfile = fopen(post_file,'w');
@@ -427,9 +427,10 @@ SetMouse(screen_properties.origin(3),screen_properties.origin(4), mainWin);
 trial = 1;
 event_counter = 1;
 onset_iteration = true;
-within_time_limit = 0;
 trial_done = false;
 iti_done = false;
+first_trial_iteration = true;
+first_return_iteration = true;
 while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
     switch EVENT_QUEUE(event_counter).TYPE
         case 'cue'
@@ -473,6 +474,7 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
                 time_on_target = (GetSecs - position.t0) - nth_target_onset; 
                 
                     if time_on_target >= EVENT_QUEUE(event_counter).TIME_ON_TARGET
+                        is_target = 1;
                         if strcmp(TRIAL(trial).type,'RD')
                             trial_type = 1;
                         elseif strcmp(TRIAL(trial).type,'SD')
@@ -517,7 +519,7 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
 
                         summaryformatstring = '%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n';
 
-                        fprintf(summaryfile,summaryformatstring,[trial,trial_type,target_num,position.time_to_target_from_trial_onset(trial),position.end_point_error(trial),avg_error_mag,error_accumulated_over_trajectory,max_error_mag,max_error_pos_as_percent,feedback,within_time_limit]);
+                        fprintf(summaryfile,summaryformatstring,[trial,trial_type,target_num,position.time_to_target_from_trial_onset(trial),position.end_point_error(trial),avg_error_mag,error_accumulated_over_trajectory,max_error_mag,max_error_pos_as_percent,feedback,is_target]);
 
                         position.xyt = [0 0 0];
                         position.velxyt = [0 0 0];
@@ -544,9 +546,13 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
     
         case 'return'
             
+            target_num = TRIAL(trial).target;
+            
             if TRIAL(trial).perturb
+                position.target_theta = target(target_num).polar_coords(1) - PERTURBATION_ANGLE;
                 position = update_absolute_pos_data_perturb(position, reverse_y_bool, PERTURBATION_ANGLE);
             else
+                position.target_theta = target(target_num).polar_coords(1);
                 position = update_absolute_pos_data(position,reverse_y_bool);
             end
             
@@ -561,7 +567,7 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
             
             if mag_d < TARGET_RADIUS_MM 
                 
-                if first_trial_iteration
+                if first_return_iteration
                    return_onset = GetSecs - position.t0;
                    endpoint = length(position.error_theta);
                    nth_return_onset = return_onset;
@@ -571,6 +577,7 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
                 time_on_target = (GetSecs - position.t0) - nth_return_onset; 
                 
                     if time_on_target >= EVENT_QUEUE(event_counter).TIME_ON_TARGET
+                        is_target = 0;
                         trial_type = 0;
                         time = GetSecs - position.t0;
                         
@@ -578,8 +585,7 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
                         time_to_target_from_return_onset_final = time - position.return_onset(trial);
                         
                         %error is meaningless for return
-                        end_point_error = 0;%position.error_theta(endpoint);
-                        end_point_error_final = 0;%position.error_theta(length(position.error_theta));
+                        end_point_error = 0;
                         
                         PsychPortAudio('FillBuffer',audiohandle,pleasant_data);
                         PsychPortAudio('Start',audiohandle,1,0,1);
@@ -603,7 +609,7 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
 
                         summaryformatstring = '%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n';
 
-                        fprintf(summaryfile,summaryformatstring,[trial,trial_type,target_num,position.time_to_target_from_trial_onset(trial),position.end_point_error(trial),avg_error_mag,error_accumulated_over_trajectory,max_error_mag,max_error_pos_as_percent,feedback,within_time_limit]);
+                        fprintf(summaryfile,summaryformatstring,[trial,trial_type,target_num,time_to_target_from_return_onset,end_point_error,avg_error_mag,error_accumulated_over_trajectory,max_error_mag,max_error_pos_as_percent,feedback,is_target]);
 
                         position.xyt = [0 0 0];
                         position.velxyt = [0 0 0];
@@ -619,12 +625,12 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
                         position.magerror_vec = [0];
                         position.magproj_vec = [0];
                         next_event = true;
-                        first_trial_iteration = true;
+                        first_return_iteration = true;
 
                     end
             
             else
-                nth_target_onset = GetSecs - position.t0;
+                nth_return_onset = GetSecs - position.t0;
                 time_on_target = 0;
             end            
             
@@ -655,12 +661,6 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
         time_sorted_key_queue = sortrows(key_queue,2);
         for i = 1:length(time_sorted_key_queue(:,1))
             if time_sorted_key_queue(i,1) == TRIGGER_KEY
-                if ttl_counter <= length(TTL_QUEUE)
-                    expected_ttl_arrival_time = num2str(TTL_QUEUE(ttl_counter));
-                else
-                    expected_ttl_arrival_time = inf;
-                end
-               
                 fprintf(eventlog,notice_format,['::TTL #',num2str(ttl_counter),' expected (time-based): ',num2str(round(flip_time/TR_DURATION)),' recorded: ',num2str(flip_time),' ::']);
                 ttl_counter = ttl_counter + 1;
             end
@@ -694,9 +694,14 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
 
     %switch events when duration is reached (remember it's inf for trial
     %and return trials)
-    if(flip_time)- last_onset >= EVENT_QUEUE(event_counter).DURATION
+    if next_event || (flip_time) - last_onset >= EVENT_QUEUE(event_counter).DURATION
         onset_iteration = true;
+        if EVENT_QUEUE(event_counter).TYPE 
         
+        event_counter = event_counter + 1;
+        
+        
+        next_event = false;
     end
 
 end
