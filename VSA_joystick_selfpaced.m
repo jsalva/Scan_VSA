@@ -695,13 +695,14 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
     %switch events when duration is reached (remember it's inf for trial
     %and return trials)
     if next_event || (flip_time) - last_onset >= EVENT_QUEUE(event_counter).DURATION
+        
+        if strcmp(EVENT_QUEUE(event_counter).TYPE,'return')
+            trial = trial + 1;
+        end
         onset_iteration = true;
-        if EVENT_QUEUE(event_counter).TYPE 
-        
         event_counter = event_counter + 1;
-        
-        
         next_event = false;
+        
     end
 
 end
