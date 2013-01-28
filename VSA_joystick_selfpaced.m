@@ -5,7 +5,7 @@ Screen('Preference', 'SkipSyncTests', 1)
 addpath ./util
 addpath ./data
 KbName('UnifyKeyNames');
-debug=true;
+debug=false;
 global last_refresh;
 last_refresh = GetSecs;
 
