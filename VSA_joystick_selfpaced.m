@@ -221,6 +221,8 @@ for block = 1:length(BLOCK_STRUCTURE)
             EVENT_QUEUE(event_counter).TYPE = 'return';
             EVENT_QUEUE(event_counter).DURATION = RETURN_DURATION;
             EVENT_QUEUE(event_counter).TIME_ON_TARGET = RETURN_TIME_ON_TARGET;
+            
+            trial = trial + 1;
         end
     end
 
@@ -431,6 +433,7 @@ trial_done = false;
 iti_done = false;
 first_trial_iteration = true;
 first_return_iteration = true;
+next_event = false;
 while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
     switch EVENT_QUEUE(event_counter).TYPE
         case 'cue'
