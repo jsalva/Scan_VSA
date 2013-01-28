@@ -941,8 +941,7 @@ if run == 2
     end
     counter = 0;
     position.t0_post = GetSecs;
-    next=true;
-    draw='home';
+    draw='target';
     disp_number = '';
     time_on_target = 0;
     first_trial_iteration = true;
@@ -1089,10 +1088,11 @@ if run == 2
     %Correct sequence needed
     counter = 0;
     disp_tmp=[];
-    wait = true;
+    position.t0_post_2 = GetSecs;
     disp_number='';
-    draw='home';
-    next=true;
+    draw='target';
+    first_trial_iteration = true;
+    first_return_iteration = true;
     fprintf(eventlog,notice_format,['::Post movement (forced) sequence started at ',datestr(now),', with machine clock reading ',num2str(position.t0),'.::']);
 
     while(counter < length(SEQUENCE))
@@ -1100,19 +1100,7 @@ if run == 2
         if done_with_post_test
             break;
         end
-
-
-        for i = 1:NUMBER_OF_TARGETS
-            Screen('TextSize',mainWin,50);
-            Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
-        end
-
-
-        if BETWEEN_STIMULI
-            SetMouse(screen_properties.origin(3),screen_properties.origin(4), mainWin);
-        end
-
-
+        
         position = update_absolute_pos_data(position,reverse_y_bool);
 
         %get polar coords of current pos
@@ -1126,39 +1114,74 @@ if run == 2
         Screen('DrawTexture',mainWin,cursor_tex,[],cursor_rect);
 
         switch draw
-            case 'home'
-                if next
-                    BETWEEN_STIMULI=true;
-                    position.home_onset_post(counter+1) = GetSecs - position.t0_post;
-                    next = false;
-                end
+            case 'return'
+                
+                Screen('DrawTexture',mainWin,target_tex,[],home.rect);
+            
+                if mag_d < TARGET_RADIUS_MM 
 
-                if GetSecs - position.t0_post - position.home_onset_post(counter+1) > WAIT_TIME_POST_TARGET
-                    next = true;
-                    BETWEEN_STIMULI=false;
-                    draw = 'target';
-                end
+                    if first_return_iteration
+                       return_onset = GetSecs - position.t0_post_2;
+                       nth_return_onset = return_onset;
+                       first_return_iteration = false;
+                    end
 
+                    time_on_target = (GetSecs - position.t0_post_2) - nth_return_onset; 
+
+                        if time_on_target >= RETURN_TIME_ON_TARGET
+                            
+                            draw = 'target';
+                            
+                            first_return_iteration = true;
+                        end
+                else
+                    nth_target_onset = GetSecs - position.t0_post_2;
+                    time_on_target = 0;
+                end
+                
             case 'target'
-                if mag_d > TARGET_DIST_FROM_CENTER_MM - TARGET_RADIUS_MM  && wait
+                
+                
+                for i = 1:NUMBER_OF_TARGETS
+                    Screen('TextSize',mainWin,50);
+                    Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
+                end
+                
+                if mag_d > TARGET_DIST_FROM_CENTER_MM - TARGET_RADIUS_MM
 
+                    if first_trial_iteration
+                       target_onset = GetSecs - position.t0_post_2;
+                       nth_target_onset = target_onset;
+                       first_trial_iteration = false;
+                    end
+                    
+                    
+                    time_on_target = (GetSecs - position.t0_post_2) - nth_target_onset; 
 
-                    if theta_d<2*pi()/(2*NUMBER_OF_TARGETS)
-                        disp_tmp(length(disp_tmp)+1)=NUMBER_OF_TARGETS;
-                    else
-                        disp_tmp(length(disp_tmp)+1)=find(abs(targ_thetas-theta_d)==min(abs(targ_thetas-theta_d)));
+                    if time_on_target >= TRIAL_TIME_ON_TARGET
+
+                        
+                        if theta_d<2*pi()/(2*NUMBER_OF_TARGETS)
+                            disp_tmp(length(disp_tmp)+1)=NUMBER_OF_TARGETS;
+                        else
+                            disp_tmp(length(disp_tmp)+1)=find(abs(targ_thetas-theta_d)==min(abs(targ_thetas-theta_d)));
+                        end
+
+                        
+                        disp_number(length(disp_number)+1) = num2str(disp_tmp(length(disp_tmp)));
+                        if disp_tmp(length(disp_tmp)) == SEQUENCE(counter+1)
+                            disp_tmp=[];
+                            draw = 'return';
+                            disp_number(length(disp_number)+1) = '-';
+                            counter = counter+1; 
+                        end
+                        
+                        first_trial_iteration = true;
                     end
 
-                    disp_number(length(disp_number)+1) = num2str(disp_tmp(length(disp_tmp)));
-                    if disp_tmp(length(disp_tmp)) == SEQUENCE(counter+1)
-                        disp_tmp=[];
-                        draw = 'home';
-                        disp_number(length(disp_number)+1) = '-';
-                        counter = counter+1; 
-                    end
-                    wait=false;
-                elseif mag_d < TARGET_DIST_FROM_CENTER_MM - TARGET_RADIUS_MM
-                    wait = true;
+                else
+                    nth_target_onset = GetSecs - position.t0_post_2;
+                    time_on_target = 0;
                 end
 
         end
