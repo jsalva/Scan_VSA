@@ -5,7 +5,7 @@ Screen('Preference', 'SkipSyncTests', 1)
 addpath ./util
 addpath ./data
 KbName('UnifyKeyNames');
-debug=false;
+debug=true;
 global last_refresh;
 last_refresh = GetSecs;
 
@@ -944,23 +944,15 @@ if run == 2
     next=true;
     draw='home';
     disp_number = '';
+    time_on_target = 0;
+    first_trial_iteration = true;
+    first_return_iteration = true;
     
     fprintf(eventlog,notice_format,['::Post movement (non-forced) sequence started at ',datestr(now),', with machine clock reading ',num2str(position.t0),'.::']);
     while(counter < length(SEQUENCE))
 
         if done_with_post_test
             break;
-        end
-
-
-        for i = 1:NUMBER_OF_TARGETS
-            Screen('TextSize',mainWin,50);
-            Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
-        end
-
-
-        if BETWEEN_STIMULI
-            SetMouse(screen_properties.origin(3),screen_properties.origin(4), mainWin);
         end
 
         position = update_absolute_pos_data(position,reverse_y_bool);
@@ -975,33 +967,67 @@ if run == 2
         Screen('DrawTexture',mainWin,cursor_tex,[],cursor_rect);
 
         switch draw
-            case 'home'
-                if next
-                    BETWEEN_STIMULI=true;
-                    position.home_onset_post(counter+1) = GetSecs - position.t0_post;
-                    next = false;
-                end
+            case 'return'
+                
+                Screen('DrawTexture',mainWin,target_tex,[],home.rect);
+            
+                if mag_d < TARGET_RADIUS_MM 
 
-                if GetSecs - position.t0_post - position.home_onset_post(counter+1) > WAIT_TIME_POST_TARGET
-                    next = true;
-                    BETWEEN_STIMULI=false;
-                    draw = 'target';
+                    if first_return_iteration
+                       return_onset = GetSecs - position.t0_post;
+                       nth_return_onset = return_onset;
+                       first_return_iteration = false;
+                    end
+
+                    time_on_target = (GetSecs - position.t0_post) - nth_return_onset; 
+
+                        if time_on_target >= RETURN_TIME_ON_TARGET
+                            
+                            draw = 'target';
+                            
+                            first_return_iteration = true;
+                        end
+                else
+                    nth_target_onset = GetSecs - position.t0_post;
+                    time_on_target = 0;
                 end
 
             case 'target'
+                
+                for i = 1:NUMBER_OF_TARGETS
+                    Screen('TextSize',mainWin,50);
+                    Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
+                end
+                 
                 if mag_d > TARGET_DIST_FROM_CENTER_MM - TARGET_RADIUS_MM
-                    draw = 'home';
-                    counter = counter+1;
-                    if theta_d<2*pi()/(2*NUMBER_OF_TARGETS)
-                        disp_number(counter)=num2str(NUMBER_OF_TARGETS);
-                    else
-                        disp_number(counter)=num2str(find(abs(targ_thetas-theta_d)==min(abs(targ_thetas-theta_d))));
+                    if first_trial_iteration
+                       target_onset = GetSecs - position.t0_post;
+                       nth_target_onset = target_onset;
+                       first_trial_iteration = false;
                     end
+                    
+                    
+                    time_on_target = (GetSecs - position.t0_post) - nth_target_onset; 
+
+                    if time_on_target >= TRIAL_TIME_ON_TARGET
+
+                         draw = 'return';
+                         counter = counter+1;
+                         if theta_d<2*pi()/(2*NUMBER_OF_TARGETS)
+                             disp_number(counter)=num2str(NUMBER_OF_TARGETS);
+                         else
+                             disp_number(counter)=num2str(find(abs(targ_thetas-theta_d)==min(abs(targ_thetas-theta_d))));
+                         end
+                         first_trial_iteration = true;
+                    end
+                else
+                    nth_target_onset = GetSecs - position.t0;
+                    time_on_target = 0;
+                    
                 end
 
         end
-
-
+        
         Screen('Flip',mainWin);
         flip_time = GetSecs - position.t0;
         [pressed firstPress firstRelease lastPress lastRelease] = KbQueueCheck();
@@ -1052,7 +1078,7 @@ if run == 2
 
     while(GetSecs-start_post < INSTDUR)
         Screen('TextSize',mainWin,25);
-        DrawFormattedText(mainWin,'During some trials\n you were presented with a \nsequence of locations. \n\nMove through the 8 item sequence','center',.2*screen_properties.height_res_pix,black);
+        DrawFormattedText(mainWin,'During some trials\n you were presented with a \nsequence of locations. \n\nStarting with the LEFT target, move through the 8 item sequence','center',.2*screen_properties.height_res_pix,black);
         for i = 1:NUMBER_OF_TARGETS
             Screen('TextSize',mainWin,50);
             Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
