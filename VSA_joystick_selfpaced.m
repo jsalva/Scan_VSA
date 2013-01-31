@@ -32,7 +32,10 @@ NUMBER_OF_TARGETS = 4;
 PERTURBATION_ANGLE = pi()/4;
 LENGTH_OF_SEQUENCE = 8;
 global TARGET_DIST_FROM_CENTER_MM
+global JOYSTICK_MAGNITUDE_SCALING
+
 TARGET_DIST_FROM_CENTER_MM = 100;
+JOYSTICK_MAGNITUDE_SCALING = 1.3;
 TARGET_RADIUS_MM = 5;
 WAIT_TIME_POST_TARGET=.25;
 %used to setup end point error for positive vs negative feedback
@@ -55,10 +58,10 @@ if ~debug
         CUE_DURATION = 0.5;
         
         TRIAL_DURATION = inf;
-        TRIAL_TIME_ON_TARGET = 0.25;
+        TRIAL_TIME_ON_TARGET = 0.1;
         
         RETURN_DURATION = inf;
-        RETURN_TIME_ON_TARGET = 0.25;
+        RETURN_TIME_ON_TARGET = 0.1;
         
         REST_DURATION = 12;
         
@@ -69,10 +72,10 @@ if ~debug
         CUE_DURATION = 0.5;
         
         TRIAL_DURATION = inf;
-        TRIAL_TIME_ON_TARGET = 0.25;
+        TRIAL_TIME_ON_TARGET = 0.1;
         
         RETURN_DURATION = inf;
-        RETURN_TIME_ON_TARGET = 0.25;
+        RETURN_TIME_ON_TARGET = 0.1;
         
         REST_DURATION = 12;
         
@@ -357,7 +360,7 @@ ttl_counter = 1;
 
 %Create Queue
 keyboards = GetKeyboardIndices;
-KbQueueCreate(keyboards(1))
+KbQueueCreate(7)
 KbQueueStart()
 %%%%%%%%%%%GET QUEUE SET UP%%%%%%%%%%%%%%%%%%%%%%%%%
 fprintf(eventlog,notice_format,['::Queue started at ',datestr(now),', with machine clock reading ',num2str(GetSecs),'.::']);
