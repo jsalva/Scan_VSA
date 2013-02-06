@@ -1,4 +1,0 @@
-Guess about targets:	they appear out of nowhere
-numbers:	14231234
-movements:	13412412
-forced crct:	111342-4-333221-43-14-2-3-41-

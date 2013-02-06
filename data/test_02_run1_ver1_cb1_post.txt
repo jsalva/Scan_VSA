@@ -1,4 +1,0 @@
-Guess about targets:	yes i noticed the text gets an automatic n when the \ntext gets too long like more than fifty characters \ngives you a new line
-numbers:	14224442
-movements:	41231324
-forced crct:	2-4-1-3-4-2-3-1-

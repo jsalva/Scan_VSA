@@ -1,4 +1,0 @@
-Guess about targets:	the targets looked like drainage covers and would count \na positive golf ball arrival when the ball image \nouter frame touched the drain image outer frame, \nnot necessarily the center of the target image
-numbers:	42313241
-movements:	42313214
-forced crct:	2-4-31-3-24-31432-3-1-
