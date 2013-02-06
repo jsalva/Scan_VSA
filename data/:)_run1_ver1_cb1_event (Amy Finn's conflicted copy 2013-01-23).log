@@ -1,0 +1,54 @@
+::Queue started at 23-Jan-2013 11:26:30, with machine clock reading 12005.7336.::
+::Experiment started at 23-Jan-2013 11:26:31, with machine clock reading 12006.9138.::
+::TTL #1 expected: 0 recorded: 0 ::
+=+	24013.4614
+::Onset of cue expected: 0 recorded: 0.085062 ::
+cue	0.0851
+::Onset of trial expected: 0.5 recorded: 1.1039 ::
+trial	1.1039
+::Onset of iti expected: 1.7 recorded: 1.9221 ::
+iti	1.9221
+::Onset of trial expected: 1.9 recorded: 1.9387 ::
+trial	1.9387
+::Onset of iti expected: 3.1 recorded: 3.1243 ::
+iti	3.1243
+::Onset of trial expected: 3.3 recorded: 3.3248 ::
+trial	3.3248
+::Onset of iti expected: 4.5 recorded: 4.5271 ::
+iti	4.5271
+::Onset of trial expected: 4.7 recorded: 4.7276 ::
+trial	4.7276
+::Onset of iti expected: 5.9 recorded: 5.9298 ::
+iti	5.9298
+::Onset of trial expected: 6.1 recorded: 6.1302 ::
+trial	6.1302
+::Onset of iti expected: 7.3 recorded: 7.3326 ::
+iti	7.3326
+::Onset of trial expected: 7.5 recorded: 7.533 ::
+trial	7.5330
+::Onset of iti expected: 8.7 recorded: 8.7186 ::
+iti	8.7186
+::Onset of trial expected: 8.9 recorded: 8.9189 ::
+trial	8.9189
+::Onset of iti expected: 10.1 recorded: 10.1214 ::
+iti	10.1214
+::Onset of trial expected: 10.3 recorded: 10.3217 ::
+trial	10.3217
+::Onset of iti expected: 11.5 recorded: 11.5242 ::
+iti	11.5242
+::Onset of trial expected: 11.7 recorded: 11.7245 ::
+trial	11.7245
+::Onset of iti expected: 12.9 recorded: 12.9268 ::
+iti	12.9268
+::Onset of trial expected: 13.1 recorded: 13.1271 ::
+trial	13.1271
+::Onset of iti expected: 14.3 recorded: 14.3294 ::
+iti	14.3294
+::Onset of trial expected: 14.5 recorded: 14.5299 ::
+trial	14.5299
+::Onset of iti expected: 15.7 recorded: 15.7321 ::
+iti	15.7321
+::Onset of trial expected: 15.9 recorded: 15.9325 ::
+trial	15.9325
+::Onset of iti expected: 17.1 recorded: 17.1182 ::
+iti	17.1182

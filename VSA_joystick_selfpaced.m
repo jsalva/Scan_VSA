@@ -16,8 +16,8 @@ fprintf(fileid,headerstring,'Trial','Type','Target/Home(1,0)','Target #','Time(s
 
 summary_file = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_summary.txt'];
 summaryfile = fopen(summary_file,'w');
-summaryheader = '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n';
-fprintf(summaryfile,summaryheader,'Trial','Type','Target #','Time to Target','Endpoint Error','Est. Avg. Error Mag','Accum. Error x dMagProj', 'Max Error Mag.','Max Error Pos. (% of trajectory)','Feedback','Target (1)/Return (0)');
+summaryheader = '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n';
+fprintf(summaryfile,summaryheader,'Trial','Type','Onset','Target #','Time to Target','Endpoint Error','Est. Avg. Error Mag','Accum. Error x dMagProj', 'Max Error Mag.','Max Error Pos. (% of trajectory)','Feedback','Target (1)/Return (0)');
 
 post_file = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_post.txt'];
 postfile = fopen(post_file,'w');
@@ -26,6 +26,12 @@ event_log = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalan
 eventlog = fopen(event_log,'w');
 key_format = '%s\t%.4f\n';
 notice_format = '%s\n';
+
+onsets_file = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_onsets.txt'];
+onsetsfile = fopen(onsets_file,'w');
+onsetsheader_format = '%s\t%s\t%s\n';
+onsets_format = '%d\t%s\t%0.10f\n';
+fprintf(onsetsfile,onsetsheader_format,'Event Number','Event Type','Onset');
 
 %setup experiment paramters
 NUMBER_OF_TARGETS = 4;
@@ -36,6 +42,7 @@ global JOYSTICK_MAGNITUDE_SCALING
 
 TARGET_DIST_FROM_CENTER_MM = 100;
 JOYSTICK_MAGNITUDE_SCALING = 1.3;
+RETURN_TARGET_RADIUS_MM = 20;
 TARGET_RADIUS_MM = 5;
 WAIT_TIME_POST_TARGET=.25;
 %used to setup end point error for positive vs negative feedback
@@ -359,8 +366,11 @@ QUIT_KEY = KbName('q');
 ttl_counter = 1;
 
 %Create Queue
-keyboards = GetKeyboardIndices;
-KbQueueCreate(7)
+%Currently only works for mac, and is done this way to avoid
+%improperly detecting the scanner button box as the queue to open. You will
+%have to change this if you're not using a mac.
+keyboard = GetKeyboardIndices('Apple Internal Keyboard / Trackpad');
+KbQueueCreate(keyboard)
 KbQueueStart()
 %%%%%%%%%%%GET QUEUE SET UP%%%%%%%%%%%%%%%%%%%%%%%%%
 fprintf(eventlog,notice_format,['::Queue started at ',datestr(now),', with machine clock reading ',num2str(GetSecs),'.::']);
@@ -523,9 +533,9 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
                         formatstring = '%d\t%d\t%d\t%d\t%f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n';
                         fprintf(fileid,formatstring,[repmat(trial,length(position.xyt(2:end,3)),1),repmat(trial_type,length(position.xyt(2:end,3)),1),(position.xyt(2:end,3)>position.trial_onset(trial)),repmat(target_num,length(position.xyt(2:end,3)),1),position.xyt(2:end,3),position.xyt(2:end,1:2), position.velxyt(2:end,1:2), position.accelxyt(2:end,1:2), position.error_vec(2:end,1:2), position.proj_onto_targ(2:end,1:2)]');
 
-                        summaryformatstring = '%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n';
+                        summaryformatstring = '%d\t%d\t%0.4f\t%d\t%0.4f\t%f\t%d\t%d\t%d\t%0.4f\t%d\t%d\n';
 
-                        fprintf(summaryfile,summaryformatstring,[trial,trial_type,target_num,position.time_to_target_from_trial_onset(trial),position.end_point_error(trial),avg_error_mag,error_accumulated_over_trajectory,max_error_mag,max_error_pos_as_percent,feedback,is_target]);
+                        fprintf(summaryfile,summaryformatstring,[trial,trial_type,position.trial_onset(trial),target_num,position.time_to_target_from_trial_onset(trial),position.end_point_error(trial),avg_error_mag,error_accumulated_over_trajectory,max_error_mag,max_error_pos_as_percent,feedback,is_target]);
 
                         position.xyt = [0 0 0];
                         position.velxyt = [0 0 0];
@@ -571,7 +581,7 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
             Screen('DrawTexture',mainWin,target_tex,[],home.rect);
             Screen('DrawTexture',mainWin,cursor_tex,[],cursor_rect);
             
-            if mag_d < TARGET_RADIUS_MM 
+            if mag_d < RETURN_TARGET_RADIUS_MM
                 
                 if first_return_iteration
                    return_onset = GetSecs - position.t0;
@@ -613,9 +623,9 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
                         formatstring = '%d\t%d\t%d\t%d\t%f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n';
                         fprintf(fileid,formatstring,[repmat(trial,length(position.xyt(2:end,3)),1),repmat(trial_type,length(position.xyt(2:end,3)),1),(position.xyt(2:end,3)>position.trial_onset(trial)),repmat(target_num,length(position.xyt(2:end,3)),1),position.xyt(2:end,3),position.xyt(2:end,1:2), position.velxyt(2:end,1:2), position.accelxyt(2:end,1:2), position.error_vec(2:end,1:2), position.proj_onto_targ(2:end,1:2)]');
 
-                        summaryformatstring = '%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n';
+                        summaryformatstring = '%d\t%d\t%0.4f\t%d\t%0.4f\t%f\t%d\t%d\t%d\t%0.4f\t%d\t%d\n';
 
-                        fprintf(summaryfile,summaryformatstring,[trial,trial_type,target_num,time_to_target_from_return_onset,end_point_error,avg_error_mag,error_accumulated_over_trajectory,max_error_mag,max_error_pos_as_percent,feedback,is_target]);
+                        fprintf(summaryfile,summaryformatstring,[trial,trial_type,position.return_onset(trial),target_num,time_to_target_from_return_onset,end_point_error,avg_error_mag,error_accumulated_over_trajectory,max_error_mag,max_error_pos_as_percent,feedback,is_target]);
 
                         position.xyt = [0 0 0];
                         position.velxyt = [0 0 0];
@@ -695,6 +705,8 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
             case 'rest'
                 position.rest_onset(trial) = flip_time;
         end        
+        
+        fprintf(onsetsfile,onsets_format,event_counter,EVENT_QUEUE(event_counter).TYPE,flip_time);
         onset_iteration = false;
     end
 
@@ -973,7 +985,7 @@ if run == 2
                 
                 Screen('DrawTexture',mainWin,target_tex,[],home.rect);
             
-                if mag_d < TARGET_RADIUS_MM 
+                if mag_d < RETURN_TARGET_RADIUS_MM 
 
                     if first_return_iteration
                        return_onset = GetSecs - position.t0_post;
@@ -1121,7 +1133,7 @@ if run == 2
                 
                 Screen('DrawTexture',mainWin,target_tex,[],home.rect);
             
-                if mag_d < TARGET_RADIUS_MM 
+                if mag_d < RETURN_TARGET_RADIUS_MM 
 
                     if first_return_iteration
                        return_onset = GetSecs - position.t0_post_2;
