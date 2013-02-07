@@ -1,7 +1,11 @@
-function practice_VSA_joystick_selfpaced(subject_id)
+function practice_VSA_joystick_selfpaced(subject_id,run)
 
 Screen('Preference', 'SkipSyncTests', 1)
-reverse_y_bool=false;
+if run == 2
+    reverse_y_bool=true;
+else
+    reverse_y_bool=false;
+end
 addpath ./util
 addpath ./data
 KbName('UnifyKeyNames');
@@ -9,22 +13,22 @@ debug=false;
 global last_refresh;
 last_refresh = GetSecs;
 
-filename = ['./data/',subject_id,'_pratice_data.txt'];
+filename = ['./data/',subject_id,'_pratice',num2str(run),'_data.txt'];
 fileid = fopen(filename,'w');
 headerstring = '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n';
 fprintf(fileid,headerstring,'Trial','Type','Target/Home(1,0)','Target #','Time(s)','Xpos','Ypos','Xvel','Yvel','Xaccel','Yaccel','Xerror','Yerror','Xprojection','Yprojection');
 
-summary_file = ['./data/',subject_id,'_pratice_summary.txt'];
+summary_file = ['./data/',subject_id,'_pratice',num2str(run),'_summary.txt'];
 summaryfile = fopen(summary_file,'w');
 summaryheader = '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n';
 fprintf(summaryfile,summaryheader,'Trial','Type','Onset','Target #','Time to Target','Endpoint Error','Est. Avg. Error Mag','Accum. Error x dMagProj', 'Max Error Mag.','Max Error Pos. (% of trajectory)','Feedback','Target (1)/Return (0)');
 
-event_log = ['./data/',subject_id,'pratice_event.log'];
+event_log = ['./data/',subject_id,'pratice',num2str(run),'_event.log'];
 eventlog = fopen(event_log,'w');
 key_format = '%s\t%.4f\n';
 notice_format = '%s\n';
 
-onsets_file = ['./data/',subject_id,'pratice_onsets.txt'];
+onsets_file = ['./data/',subject_id,'pratice',num2str(run),'_onsets.txt'];
 onsetsfile = fopen(onsets_file,'w');
 onsetsheader_format = '%s\t%s\t%s\n';
 onsets_format = '%d\t%s\t%0.10f\n';
@@ -53,21 +57,37 @@ pleasant_data = pleasant_data';
 [unpleasant_data,freq,bits] = wavread('./util/unpleasant.wav');
 unpleasant_data = 1/16 * [unpleasant_data';unpleasant_data'];
 audiohandle=PsychPortAudio('Open',[],[],1);
+if run ==2
+    BLOCK_STRUCTURE = {'RD','RD','RD','RD','RD'};
+    NUMBER_OF_SEQUENCE_REPEATS_PER_BLOCK = [6,6,6,6,6];
 
-BLOCK_STRUCTURE = {'RD','RI','RD','RI'};
-NUMBER_OF_SEQUENCE_REPEATS_PER_BLOCK = [2,2,2,2];
-        
-CUE_DURATION = 0.5;
-        
-TRIAL_DURATION = inf;
-TRIAL_TIME_ON_TARGET = 0.1;
-        
-RETURN_DURATION = inf;
-RETURN_TIME_ON_TARGET = 0.1;
-        
-REST_DURATION = 5;
+    CUE_DURATION = 0.5;
 
-RAND = false;
+    TRIAL_DURATION = inf;
+    TRIAL_TIME_ON_TARGET = 0.1;
+
+    RETURN_DURATION = inf;
+    RETURN_TIME_ON_TARGET = 0.1;
+
+    REST_DURATION = 12;
+    RAND = true;
+
+else
+    BLOCK_STRUCTURE = {'RD','RI','RD','RI'};
+    NUMBER_OF_SEQUENCE_REPEATS_PER_BLOCK = [2,2,2,2];
+
+    CUE_DURATION = 0.5;
+
+    TRIAL_DURATION = inf;
+    TRIAL_TIME_ON_TARGET = 0.1;
+
+    RETURN_DURATION = inf;
+    RETURN_TIME_ON_TARGET = 0.1;
+
+    REST_DURATION = 5;
+    
+    RAND = false;
+end
 
 while (~exist('SEQUENCE','var')) || SEQUENCE(1) == SEQUENCE(end)
     if RAND
@@ -332,7 +352,7 @@ stationary_rect = rect_subtend_distance_mm(subtends);
 
 scale_width = -.2;
 
-TRIGGER_KEY = KbName('=+');
+TRIGGER_KEY = KbName('space');
 QUIT_KEY = KbName('q');
 ttl_counter = 1;
 
@@ -345,97 +365,102 @@ KbQueueCreate(keyboard)
 KbQueueStart()
 %%%%%%%%%%%GET QUEUE SET UP%%%%%%%%%%%%%%%%%%%%%%%%%
 fprintf(eventlog,notice_format,['::Queue started at ',datestr(now),', with machine clock reading ',num2str(GetSecs),'.::']);
-
-t0=GetSecs;
-screen = 1;
-while(1)
-    flip_time = GetSecs - t0;
-    [pressed firstPress firstRelease lastPress lastRelease] = KbQueueCheck();
-    if pressed
-        key_ids = find(firstPress);
-        first_times = firstPress(key_ids) + flip_time;
-        last_times = lastPress(key_ids) + flip_time;
-        key_queue = [0,0];
-        queue_counter = 1;
-        for key = 1:length(key_ids)
-            key_queue(queue_counter,:) = [key_ids(key),first_times(key)];
-            queue_counter = queue_counter + 1;
-
-            if first_times(key) ~= last_times(key)
-                key_queue(queue_counter,:) = [key_ids(key),last_times(key)];
+if run == 1
+    t0=GetSecs;
+    screen = 1;
+    while(1)
+        flip_time = GetSecs - t0;
+        [pressed firstPress firstRelease lastPress lastRelease] = KbQueueCheck();
+        if pressed
+            key_ids = find(firstPress);
+            first_times = firstPress(key_ids) + flip_time;
+            last_times = lastPress(key_ids) + flip_time;
+            key_queue = [0,0];
+            queue_counter = 1;
+            for key = 1:length(key_ids)
+                key_queue(queue_counter,:) = [key_ids(key),first_times(key)];
                 queue_counter = queue_counter + 1;
+
+                if first_times(key) ~= last_times(key)
+                    key_queue(queue_counter,:) = [key_ids(key),last_times(key)];
+                    queue_counter = queue_counter + 1;
+                end
+            end
+
+            time_sorted_key_queue = sortrows(key_queue,2);
+
+            if any(key_ids == QUIT_KEY)
+                fprintf(eventlog,notice_format,['::Experimenter quit at ',datestr(now),', with machine clock reading ',num2str(GetSecs - position.t0),'.::']);
+                sca;
+                return;
+            elseif any(key_ids == TRIGGER_KEY)
+                if screen == 3
+                    PsychPortAudio('FillBuffer',audiohandle,pleasant_data);
+                    PsychPortAudio('Start',audiohandle,1,0,1);
+                elseif screen == 4
+                    PsychPortAudio('FillBuffer',audiohandle,unpleasant_data);
+                    PsychPortAudio('Start',audiohandle,1,0,1);
+                elseif screen == 7
+                    break;
+                end
+                screen = screen + 1;
             end
         end
-        
-        time_sorted_key_queue = sortrows(key_queue,2);
+        switch screen
+            case 1
+                Screen('TextSize',mainWin,25);
+                DrawFormattedText(mainWin,'Your goal is to use the joystick to move the golf ball into the target.\nTargets look like the picture above.','center',.2*screen_properties.height_res_pix,black);
 
-        if any(key_ids == QUIT_KEY)
-            fprintf(eventlog,notice_format,['::Experimenter quit at ',datestr(now),', with machine clock reading ',num2str(GetSecs - position.t0),'.::']);
-            sca;
-            return;
-        elseif any(key_ids == KbName('space'))
-            if screen == 3
-                PsychPortAudio('FillBuffer',audiohandle,pleasant_data);
-                PsychPortAudio('Start',audiohandle,1,0,1);
-            elseif screen == 4
-                PsychPortAudio('FillBuffer',audiohandle,unpleasant_data);
-                PsychPortAudio('Start',audiohandle,1,0,1);
-            elseif screen == 6
-                break;
-            end
-            screen = screen + 1;
+                Screen('DrawTexture',mainWin,cursor_tex,[],cursor_home);
+                Screen('TextSize',mainWin,15);
+                DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+                Screen('DrawTexture',mainWin,target_tex,[],target(1).rect);
+            case 2
+                Screen('TextSize',mainWin,25);
+                DrawFormattedText(mainWin,'Targets will appear in one of these four locations.\nYour goal is to move the ball onto the target and hold it there until the next target appears.\nGet the ball to the target as quickly as you can, in the most direct, straigt-line path.','center',.2*screen_properties.height_res_pix,black);       
+
+                Screen('TextSize',mainWin,15);
+                DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+                for i = 1:NUMBER_OF_TARGETS
+                    Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
+                end
+            case 3
+                Screen('TextSize',mainWin,25);
+                DrawFormattedText(mainWin,'If you make it to the target accurately, you will hear a pleasant sound.','center',.2*screen_properties.height_res_pix,black);       
+                Screen('TextSize',mainWin,15);
+                DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+                Screen('DrawTexture',mainWin,target_tex,[],target(1).rect);
+                Screen('DrawTexture',mainWin,cursor_tex,[],cursor_on_target);
+
+            case 4
+                Screen('TextSize',mainWin,25);
+                DrawFormattedText(mainWin,'If you fail to make it to the target accurately, you will hear an annoying noise.','center',.2*screen_properties.height_res_pix,black);       
+                Screen('TextSize',mainWin,15);
+                DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+                Screen('DrawTexture',mainWin,target_tex,[],target(1).rect);
+                Screen('DrawTexture',mainWin,cursor_tex,[],cursor_off_target);
+            case 5
+                Screen('TextSize',mainWin,25);
+                DrawFormattedText(mainWin,'Every other target will be at the center of the screen.','center',.2*screen_properties.height_res_pix,black);       
+                Screen('TextSize',mainWin,15);
+                DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+                Screen('DrawTexture',mainWin,target_tex,[],home.rect);
+            case 6
+                Screen('TextSize',mainWin,25);
+                DrawFormattedText(mainWin,'Most of the time, the joystick will move the way you expect.\nHowever, sometimes it will not. When this happens, you will see a black square.\nAs best as you can, continue to move the ball to the target\nas quickly as you can, in the most direct, straigt-line path.','center',.2*screen_properties.height_res_pix,black);       
+                Screen('TextSize',mainWin,15);
+                DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+                Screen('FillRect', mainWin, black, home.rect);
+            case 7
+                Screen('TextSize',mainWin,25);
+                DrawFormattedText(mainWin,'Get ready to practice for yourself!','center',.2*screen_properties.height_res_pix,black);       
+                Screen('TextSize',mainWin,15);
+                DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+
         end
+        Screen('Flip',mainWin);
     end
-    switch screen
-        case 1
-            Screen('TextSize',mainWin,25);
-            DrawFormattedText(mainWin,'Your goal is to use the joystick to move the golf ball into the target.\nTargets look like the picture above.','center',.2*screen_properties.height_res_pix,black);
-
-            Screen('DrawTexture',mainWin,cursor_tex,[],cursor_home);
-            Screen('TextSize',mainWin,15);
-            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
-            Screen('DrawTexture',mainWin,target_tex,[],target(1).rect);
-        case 2
-            Screen('TextSize',mainWin,25);
-            DrawFormattedText(mainWin,'Targets will appear in one of these four locations.\nYour goal is to move the ball onto the target and hold it there until the next target appears.\nGet the ball to the target as quickly as you can, in the most direct, straigt-line path.','center',.2*screen_properties.height_res_pix,black);       
-
-            Screen('TextSize',mainWin,15);
-            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
-            for i = 1:NUMBER_OF_TARGETS
-                Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
-            end
-        case 3
-            Screen('TextSize',mainWin,25);
-            DrawFormattedText(mainWin,'If you make it to the target accurately, you will hear a pleasant sound.','center',.2*screen_properties.height_res_pix,black);       
-            Screen('TextSize',mainWin,15);
-            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
-            Screen('DrawTexture',mainWin,target_tex,[],target(1).rect);
-            Screen('DrawTexture',mainWin,cursor_tex,[],cursor_on_target);
-            
-        case 4
-            Screen('TextSize',mainWin,25);
-            DrawFormattedText(mainWin,'If you fail to make it to the target accurately, you will hear an annoying noise.','center',.2*screen_properties.height_res_pix,black);       
-            Screen('TextSize',mainWin,15);
-            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
-            Screen('DrawTexture',mainWin,target_tex,[],target(1).rect);
-            Screen('DrawTexture',mainWin,cursor_tex,[],cursor_off_target);
-        case 5
-            Screen('TextSize',mainWin,25);
-            DrawFormattedText(mainWin,'Every other target will be at the center of the screen.','center',.2*screen_properties.height_res_pix,black);       
-            Screen('TextSize',mainWin,15);
-            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
-            Screen('DrawTexture',mainWin,target_tex,[],home.rect);
-        case 6
-            Screen('TextSize',mainWin,25);
-            DrawFormattedText(mainWin,'Most of the time, the joystick will move the way you expect.\nHowever, sometimes it will not. When this happens, you will see a black square.\nAs best as you can, continue to move the ball to the target\nas quickly as you can, in the most direct, straigt-line path.','center',.2*screen_properties.height_res_pix,black);       
-            Screen('TextSize',mainWin,15);
-            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
-            Screen('FillRect', mainWin, black, home.rect);
-  
-    end
-    Screen('Flip',mainWin);
 end
-
 
 
 while(1)

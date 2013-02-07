@@ -1,5 +1,6 @@
-function VSA_joystick_selfpaced(subject_id,run,counterbalance,reverse_y_bool)
+function VSA_joystick_selfpaced(subject_id,run,counterbalance)
 
+reverse_y_bool = true;
 Screen('Preference', 'SkipSyncTests', 1)
 
 addpath ./util
