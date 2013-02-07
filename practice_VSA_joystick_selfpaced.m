@@ -1,7 +1,7 @@
-function VSA_joystick_selfpaced(subject_id,run,counterbalance,reverse_y_bool)
+function practice_VSA_joystick_selfpaced(subject_id)
 
 Screen('Preference', 'SkipSyncTests', 1)
-
+reverse_y_bool=false;
 addpath ./util
 addpath ./data
 KbName('UnifyKeyNames');
@@ -9,25 +9,22 @@ debug=false;
 global last_refresh;
 last_refresh = GetSecs;
 
-filename = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_data.txt'];
+filename = ['./data/',subject_id,'_pratice_data.txt'];
 fileid = fopen(filename,'w');
 headerstring = '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n';
 fprintf(fileid,headerstring,'Trial','Type','Target/Home(1,0)','Target #','Time(s)','Xpos','Ypos','Xvel','Yvel','Xaccel','Yaccel','Xerror','Yerror','Xprojection','Yprojection');
 
-summary_file = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_summary.txt'];
+summary_file = ['./data/',subject_id,'_pratice_summary.txt'];
 summaryfile = fopen(summary_file,'w');
 summaryheader = '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n';
 fprintf(summaryfile,summaryheader,'Trial','Type','Onset','Target #','Time to Target','Endpoint Error','Est. Avg. Error Mag','Accum. Error x dMagProj', 'Max Error Mag.','Max Error Pos. (% of trajectory)','Feedback','Target (1)/Return (0)');
 
-post_file = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_post.txt'];
-postfile = fopen(post_file,'w');
-
-event_log = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_event.log'];
+event_log = ['./data/',subject_id,'pratice_event.log'];
 eventlog = fopen(event_log,'w');
 key_format = '%s\t%.4f\n';
 notice_format = '%s\n';
 
-onsets_file = ['./data/',subject_id,'_run',num2str(run),'_cb',num2str(counterbalance),'_onsets.txt'];
+onsets_file = ['./data/',subject_id,'pratice_onsets.txt'];
 onsetsfile = fopen(onsets_file,'w');
 onsetsheader_format = '%s\t%s\t%s\n';
 onsets_format = '%d\t%s\t%0.10f\n';
@@ -57,52 +54,19 @@ pleasant_data = pleasant_data';
 unpleasant_data = 1/16 * [unpleasant_data';unpleasant_data'];
 audiohandle=PsychPortAudio('Open',[],[],1);
 
-if ~debug
-    if (counterbalance == 1 && run == 1)||(counterbalance == 2 && run == 2)
-        BLOCK_STRUCTURE = {'RD','SD','RD','SD','RD','SD','RD','SD','RD'};
-        NUMBER_OF_SEQUENCE_REPEATS_PER_BLOCK = [2,6,2,6,2,6,2,6,2];
+BLOCK_STRUCTURE = {'RD','RI','RD','RI'};
+NUMBER_OF_SEQUENCE_REPEATS_PER_BLOCK = [2,2,2,2];
         
-        CUE_DURATION = 0.5;
+CUE_DURATION = 0.5;
         
-        TRIAL_DURATION = inf;
-        TRIAL_TIME_ON_TARGET = 0.1;
+TRIAL_DURATION = inf;
+TRIAL_TIME_ON_TARGET = 0.1;
         
-        RETURN_DURATION = inf;
-        RETURN_TIME_ON_TARGET = 0.1;
+RETURN_DURATION = inf;
+RETURN_TIME_ON_TARGET = 0.1;
         
-        REST_DURATION = 12;
-        
-    elseif (counterbalance == 1 && run == 2)||(counterbalance == 2 && run == 1)
-        BLOCK_STRUCTURE = {'RD','RI','RD','RI','RD','RI','RD','RI','RD'};
-        NUMBER_OF_SEQUENCE_REPEATS_PER_BLOCK = [2,4,2,4,2,4,2,4,2];
+REST_DURATION = 5;
 
-        CUE_DURATION = 0.5;
-        
-        TRIAL_DURATION = inf;
-        TRIAL_TIME_ON_TARGET = 0.1;
-        
-        RETURN_DURATION = inf;
-        RETURN_TIME_ON_TARGET = 0.1;
-        
-        REST_DURATION = 12;
-        
-    end
-    
-else
-    BLOCK_STRUCTURE = {'RD','SD','RD','RI','RD'};
-    NUMBER_OF_SEQUENCE_REPEATS_PER_BLOCK = [1/8 1/8 1/8 1/8 1/8];
-
-    CUE_DURATION = 0.5;
-
-    TRIAL_DURATION = inf;
-    TRIAL_TIME_ON_TARGET = 0.25;
-
-    RETURN_DURATION = inf;
-    RETURN_TIME_ON_TARGET = 0.25;
-
-    REST_DURATION = 12;
-    
-end
 RAND = false;
 
 while (~exist('SEQUENCE','var')) || SEQUENCE(1) == SEQUENCE(end)
@@ -347,7 +311,14 @@ position.magproj_vec = [0];
 cursor_subtends.screen_properties = screen_properties;
 cursor_subtends.stim_width_mm = 5;
 cursor_subtends.stim_height_mm = 5;
-
+cursor_subtends.center_on_position = home.screen_position;
+cursor_home = rect_subtend_distance_mm(cursor_subtends);
+cursor_subtends.center_on_position = target(1).screen_position;
+cursor_on_target = rect_subtend_distance_mm(cursor_subtends);
+off_target = polar2cartesian(screen_properties,1.25*delta_theta, TARGET_DIST_FROM_CENTER_MM);
+disp(off_target)
+cursor_subtends.center_on_position = screen_properties.origin + [0,0,off_target(1),-off_target(2)];
+cursor_off_target = rect_subtend_distance_mm(cursor_subtends);
 trial_type = [0];
 
 
@@ -374,6 +345,98 @@ KbQueueCreate(keyboard)
 KbQueueStart()
 %%%%%%%%%%%GET QUEUE SET UP%%%%%%%%%%%%%%%%%%%%%%%%%
 fprintf(eventlog,notice_format,['::Queue started at ',datestr(now),', with machine clock reading ',num2str(GetSecs),'.::']);
+
+t0=GetSecs;
+screen = 1;
+while(1)
+    flip_time = GetSecs - t0;
+    [pressed firstPress firstRelease lastPress lastRelease] = KbQueueCheck();
+    if pressed
+        key_ids = find(firstPress);
+        first_times = firstPress(key_ids) + flip_time;
+        last_times = lastPress(key_ids) + flip_time;
+        key_queue = [0,0];
+        queue_counter = 1;
+        for key = 1:length(key_ids)
+            key_queue(queue_counter,:) = [key_ids(key),first_times(key)];
+            queue_counter = queue_counter + 1;
+
+            if first_times(key) ~= last_times(key)
+                key_queue(queue_counter,:) = [key_ids(key),last_times(key)];
+                queue_counter = queue_counter + 1;
+            end
+        end
+        
+        time_sorted_key_queue = sortrows(key_queue,2);
+
+        if any(key_ids == QUIT_KEY)
+            fprintf(eventlog,notice_format,['::Experimenter quit at ',datestr(now),', with machine clock reading ',num2str(GetSecs - position.t0),'.::']);
+            sca;
+            return;
+        elseif any(key_ids == KbName('space'))
+            if screen == 3
+                PsychPortAudio('FillBuffer',audiohandle,pleasant_data);
+                PsychPortAudio('Start',audiohandle,1,0,1);
+            elseif screen == 4
+                PsychPortAudio('FillBuffer',audiohandle,unpleasant_data);
+                PsychPortAudio('Start',audiohandle,1,0,1);
+            elseif screen == 6
+                break;
+            end
+            screen = screen + 1;
+        end
+    end
+    switch screen
+        case 1
+            Screen('TextSize',mainWin,25);
+            DrawFormattedText(mainWin,'Your goal is to use the joystick to move the golf ball into the target.\nTargets look like the picture above.','center',.2*screen_properties.height_res_pix,black);
+
+            Screen('DrawTexture',mainWin,cursor_tex,[],cursor_home);
+            Screen('TextSize',mainWin,15);
+            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+            Screen('DrawTexture',mainWin,target_tex,[],target(1).rect);
+        case 2
+            Screen('TextSize',mainWin,25);
+            DrawFormattedText(mainWin,'Targets will appear in one of these four locations.\nYour goal is to move the ball onto the target and hold it there until the next target appears.\nGet the ball to the target as quickly as you can, in the most direct, straigt-line path.','center',.2*screen_properties.height_res_pix,black);       
+
+            Screen('TextSize',mainWin,15);
+            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+            for i = 1:NUMBER_OF_TARGETS
+                Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
+            end
+        case 3
+            Screen('TextSize',mainWin,25);
+            DrawFormattedText(mainWin,'If you make it to the target accurately, you will hear a pleasant sound.','center',.2*screen_properties.height_res_pix,black);       
+            Screen('TextSize',mainWin,15);
+            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+            Screen('DrawTexture',mainWin,target_tex,[],target(1).rect);
+            Screen('DrawTexture',mainWin,cursor_tex,[],cursor_on_target);
+            
+        case 4
+            Screen('TextSize',mainWin,25);
+            DrawFormattedText(mainWin,'If you fail to make it to the target accurately, you will hear an annoying noise.','center',.2*screen_properties.height_res_pix,black);       
+            Screen('TextSize',mainWin,15);
+            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+            Screen('DrawTexture',mainWin,target_tex,[],target(1).rect);
+            Screen('DrawTexture',mainWin,cursor_tex,[],cursor_off_target);
+        case 5
+            Screen('TextSize',mainWin,25);
+            DrawFormattedText(mainWin,'Every other target will be at the center of the screen.','center',.2*screen_properties.height_res_pix,black);       
+            Screen('TextSize',mainWin,15);
+            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+            Screen('DrawTexture',mainWin,target_tex,[],home.rect);
+        case 6
+            Screen('TextSize',mainWin,25);
+            DrawFormattedText(mainWin,'Most of the time, the joystick will move the way you expect.\nHowever, sometimes it will not. When this happens, you will see a black square.\nAs best as you can, continue to move the ball to the target\nas quickly as you can, in the most direct, straigt-line path.','center',.2*screen_properties.height_res_pix,black);       
+            Screen('TextSize',mainWin,15);
+            DrawFormattedText(mainWin,'When you are ready to move on, press the spacebar','center',.8*screen_properties.height_res_pix,black);
+            Screen('FillRect', mainWin, black, home.rect);
+  
+    end
+    Screen('Flip',mainWin);
+end
+
+
 
 while(1)
     
@@ -724,531 +787,6 @@ while(~strcmp(EVENT_QUEUE(event_counter).TYPE,'stop'))
     end
 
 end
-
-%%Handle post test
-if run == 2
-
-    fprintf(eventlog,notice_format,['::Post-Test started at ',datestr(now),', with machine clock reading ',num2str(position.t0),'.::']);
-    STOP = KbName('return');
-    string = '';
-    line_length = 50;
-    line_counter = 1;
-    disp_char = '';
-    alphabet = ['a':'z','.1234567890'];
-    abc123 = {};
-    for i = 1:length(alphabet)
-        abc123{i} = KbName(alphabet(i));
-    end
-    fprintf(eventlog,notice_format,['::Post text question started at ',datestr(now),', with machine clock reading ',num2str(position.t0),'.::']);
-
-    while(1)
-    
-        Screen('Flip',mainWin);
-        flip_time = GetSecs - position.t0;
-        [pressed firstPress firstRelease lastPress lastRelease] = KbQueueCheck();
-        if pressed
-            key_ids = find(firstPress);
-            first_times = firstPress(key_ids) + flip_time;
-            last_times = lastPress(key_ids) + flip_time;
-            key_queue = [0,0];
-            queue_counter = 1;
-            for key = 1:length(key_ids)
-                key_queue(queue_counter,:) = [key_ids(key),first_times(key)];
-                queue_counter = queue_counter + 1;
-
-                if first_times(key) ~= last_times(key)
-                    key_queue(queue_counter,:) = [key_ids(key),last_times(key)];
-                    queue_counter = queue_counter + 1;
-                end
-            end
-            time_sorted_key_queue = sortrows(key_queue,2);
-            for i = 1:length(time_sorted_key_queue(:,1))
-                switch time_sorted_key_queue(i,1) 
-                    case KbName('1!')
-                        disp_char = '1';
-                    case KbName('2@')
-                        disp_char = '2';
-                    case KbName('3#')
-                        disp_char = '3';
-                    case KbName('4$')
-                        disp_char = '4';
-                    case KbName('5%')
-                        disp_char = '5';
-                    case KbName('6^')
-                        disp_char = '6';
-                    case KbName('7&')
-                        disp_char = '7';
-                    case KbName('8*')
-                        disp_char = '8';
-                    case KbName('9(')
-                        disp_char = '9';
-                    case KbName('0)')
-                        disp_char = '0';
-                    case {KbName('space'),KbName('tab')}
-                        disp_char = ' ';
-                        if length(string)/line_counter > line_length
-                            disp_char = [disp_char,'\n'];
-                            line_counter = line_counter + 1;
-                        end
-                    case ~ismac && KbName('backspace')
-                        disp_char = '';
-                        if ~isempty(string)
-                            if length(string)>2 && strcmp(string(end-1:end),'\n')
-                                string(end-1:end) = '';
-                                line_counter = line_counter - 1;
-                            else
-                                string(end) = '';
-                            end
-                        end
-                    case KbName('delete')
-                        disp_char = '';
-                        if ~isempty(string)
-                            if length(string)>2 && strcmp(string(end-1:end),'\n')
-                                string(end-1:end) = '';
-                                line_counter = line_counter - 1;
-                            else
-                                string(end) = '';
-                            end
-                        end
-                    case KbName(',<')
-                        disp_char = ',';
-                    case KbName('.>')
-                        disp_char = '.';
-                    case KbName('''"')
-                        disp_char = '''';
-                    case KbName('/?')
-                        disp_char = '?';
-                    case abc123
-                        disp_char = KbName(time_sorted_key_queue(i,1));
-                    otherwise
-                        disp_char = '';
-                end
-
-                string = [string, disp_char];
-                fprintf(eventlog,key_format,KbName(time_sorted_key_queue(i,1)),flip_time);
-            end
-
-
-            if any(key_ids == STOP)
-                break;
-            end
-        end
-
-        Screen('TextSize',mainWin,25);
-
-        DrawFormattedText(mainWin,string,'center','center',black);
-
-        DrawFormattedText(mainWin,'Did you notice anything interesting about the golf targets?\nPress "Enter" when finished typing.','center',.2*screen_properties.height_res_pix,black);
-
-    end
-    postformatstring = '%s\t%s\n';
-
-    type_of_post='Guess about targets:';
-    fprintf(postfile,postformatstring,type_of_post,string);
-
-
-
-
-    done_with_post_test = false;
-    number = [KbName('1') KbName('2') KbName('3') KbName('4') KbName('1!') KbName('2@') KbName('3#') KbName('4$')];
-    counter = 0;
-    disp_number = '';
-    fprintf(eventlog,notice_format,['::Post numerical sequence started at ',datestr(now),', with machine clock reading ',num2str(position.t0),'.::']);
-
-    while(counter < length(SEQUENCE))
-
-        if done_with_post_test
-            break;
-        end
-        
-        Screen('Flip',mainWin);
-        flip_time = GetSecs - position.t0;
-        [pressed firstPress firstRelease lastPress lastRelease] = KbQueueCheck();
-        if pressed
-            key_ids = find(firstPress);
-            first_times = firstPress(key_ids) + flip_time;
-            last_times = lastPress(key_ids) + flip_time;
-            key_queue = [0,0];
-            queue_counter = 1;
-            for key = 1:length(key_ids)
-                key_queue(queue_counter,:) = [key_ids(key),first_times(key)];
-                queue_counter = queue_counter + 1;
-
-                if first_times(key) ~= last_times(key)
-                    key_queue(queue_counter,:) = [key_ids(key),last_times(key)];
-                    queue_counter = queue_counter + 1;
-                end
-            end
-            time_sorted_key_queue = sortrows(key_queue,2);
-            for i = 1:length(time_sorted_key_queue(:,1))
-                switch time_sorted_key_queue(i,1) 
-                    case KbName('1!')
-                        disp_char = '1';
-                        counter = counter + 1;
-                    case KbName('2@')
-                        disp_char = '2';
-                        counter = counter + 1;
-                    case KbName('3#')
-                        disp_char = '3';
-                        counter = counter + 1;
-                    case KbName('4$')
-                        disp_char = '4';
-                        counter = counter + 1;
-                    case KbName({'1','2','3','4'})
-                        disp_char = KbName(time_sorted_key_queue(i,1));
-                        counter = counter + 1;
-                    case ~ismac && KbName('backspace')
-                        disp_char = '';
-                        if ~isempty(disp_number)
-                            disp_number(end) = '';
-                            counter = counter - 1;
-                        end
-                    case KbName('delete')
-                        disp_char = '';
-                        if ~isempty(disp_number)
-                            disp_number(end) = '';
-                            counter = counter - 1;
-                        end
-                    otherwise
-                        disp_char = '';
-                end
-                disp_number = [disp_number,disp_char];
-            end
-        end
-
-        for i = 1:NUMBER_OF_TARGETS
-            Screen('TextSize',mainWin,50);
-            Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
-            DrawFormattedText(mainWin,num2str(i),target(i).rect(1)+.25*(target(i).rect(3)-target(i).rect(1)),target(i).rect(2),[255 0 0]);
-        end
-
-        Screen('TextSize',mainWin,25);
-
-        DrawFormattedText(mainWin,disp_number,'center','center',black);
-
-        DrawFormattedText(mainWin,'During some trials\n you were presented with a \nsequence of locations. \n\nEnter the 8 item sequence:','center',.2*screen_properties.height_res_pix,black);
-
-
-    end
-    postformatstring = '%s\t%s\n';
-
-    type_of_post='numbers:';
-    disp(disp_number)
-    fprintf(postfile,postformatstring,type_of_post,disp_number);
-
-    start_post = GetSecs;
-    INSTDUR = 5;
-    BETWEEN_STIMULI = true;
-    while(GetSecs-start_post < INSTDUR)
-        Screen('TextSize',mainWin,25);
-        DrawFormattedText(mainWin,'During some trials\n you were presented with a \nsequence of locations. \n\nMove through the 8 item sequence','center',.2*screen_properties.height_res_pix,black);
-        for i = 1:NUMBER_OF_TARGETS
-            Screen('TextSize',mainWin,50);
-            Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
-        end
-        Screen('Flip',mainWin);
-    end
-
-
-    targ_thetas = [];
-    for i = 1:length(target)
-        targ_thetas(i) = target(i).polar_coords(1);
-    end
-    counter = 0;
-    position.t0_post = GetSecs;
-    draw='target';
-    disp_number = '';
-    time_on_target = 0;
-    first_trial_iteration = true;
-    first_return_iteration = true;
-    
-    fprintf(eventlog,notice_format,['::Post movement (non-forced) sequence started at ',datestr(now),', with machine clock reading ',num2str(position.t0),'.::']);
-    while(counter < length(SEQUENCE))
-
-        if done_with_post_test
-            break;
-        end
-
-        position = update_absolute_pos_data(position,reverse_y_bool);
-
-        mag_d = position.polar(size(position.polar,1),2);
-        theta_d = position.polar(size(position.polar,1),1);
-
-        %draw cursor centered on the current position
-        cursor_subtends.center_on_position = position.rect(size(position.rect,1),:);
-        cursor_rect = rect_subtend_distance_mm(cursor_subtends);
-        %Screen('FillOval',mainWin,white,cursor_rect);
-        Screen('DrawTexture',mainWin,cursor_tex,[],cursor_rect);
-
-        switch draw
-            case 'return'
-                
-                Screen('DrawTexture',mainWin,target_tex,[],home.rect);
-            
-                if mag_d < RETURN_TARGET_RADIUS_MM 
-
-                    if first_return_iteration
-                       return_onset = GetSecs - position.t0_post;
-                       nth_return_onset = return_onset;
-                       first_return_iteration = false;
-                    end
-
-                    time_on_target = (GetSecs - position.t0_post) - nth_return_onset; 
-
-                        if time_on_target >= RETURN_TIME_ON_TARGET
-                            
-                            draw = 'target';
-                            
-                            first_return_iteration = true;
-                        end
-                else
-                    nth_target_onset = GetSecs - position.t0_post;
-                    time_on_target = 0;
-                end
-
-            case 'target'
-                
-                for i = 1:NUMBER_OF_TARGETS
-                    Screen('TextSize',mainWin,50);
-                    Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
-                end
-                 
-                if mag_d > TARGET_DIST_FROM_CENTER_MM - TARGET_RADIUS_MM
-                    if first_trial_iteration
-                       target_onset = GetSecs - position.t0_post;
-                       nth_target_onset = target_onset;
-                       first_trial_iteration = false;
-                    end
-                    
-                    
-                    time_on_target = (GetSecs - position.t0_post) - nth_target_onset; 
-
-                    if time_on_target >= TRIAL_TIME_ON_TARGET
-
-                         draw = 'return';
-                         counter = counter+1;
-                         if theta_d<2*pi()/(2*NUMBER_OF_TARGETS)
-                             disp_number(counter)=num2str(NUMBER_OF_TARGETS);
-                         else
-                             disp_number(counter)=num2str(find(abs(targ_thetas-theta_d)==min(abs(targ_thetas-theta_d))));
-                         end
-                         first_trial_iteration = true;
-                    end
-                else
-                    nth_target_onset = GetSecs - position.t0;
-                    time_on_target = 0;
-                    
-                end
-
-        end
-        
-        Screen('Flip',mainWin);
-        flip_time = GetSecs - position.t0;
-        [pressed firstPress firstRelease lastPress lastRelease] = KbQueueCheck();
-        if pressed
-            key_ids = find(firstPress);
-            first_times = firstPress(key_ids) + flip_time;
-            last_times = lastPress(key_ids) + flip_time;
-            key_queue = [0,0];
-            queue_counter = 1;
-            for key = 1:length(key_ids)
-                key_queue(queue_counter,:) = [key_ids(key),first_times(key)];
-                queue_counter = queue_counter + 1;
-
-                if first_times(key) ~= last_times(key)
-                    key_queue(queue_counter,:) = [key_ids(key),last_times(key)];
-                    queue_counter = queue_counter + 1;
-                end
-            end
-            time_sorted_key_queue = sortrows(key_queue,2);
-            for i = 1:length(time_sorted_key_queue(:,1))
-                if time_sorted_key_queue(i,1) == TRIGGER_KEY
-                    if ttl_counter <= length(TTL_QUEUE)
-                        expected_ttl_arrival_time = num2str(TTL_QUEUE(ttl_counter));
-                    else
-                        expected_ttl_arrival_time = inf;
-                    end
-
-                    fprintf(eventlog,notice_format,['::TTL #',num2str(ttl_counter),' expected: ',expected_ttl_arrival_time,' recorded: ',num2str(flip_time),' ::']);
-                    ttl_counter = ttl_counter + 1;
-                end
-                fprintf(eventlog,key_format,KbName(time_sorted_key_queue(i,1)),flip_time);
-            end
-
-            if any(key_ids == QUIT_KEY)
-                fprintf(eventlog,notice_format,['::Experimenter quit at ',datestr(now),', with machine clock reading ',num2str(GetSecs - position.t0),'.::']);
-                sca;
-                return;
-            end
-        end
-    end
-    disp(disp_number)
-    type_of_post='movements:';
-    fprintf(postfile,postformatstring,type_of_post,disp_number);
-
-    start_post = GetSecs;
-    INSTDUR = 5;
-    
-
-    while(GetSecs-start_post < INSTDUR)
-        Screen('TextSize',mainWin,25);
-        DrawFormattedText(mainWin,'During some trials\n you were presented with a \nsequence of locations. \n\nStarting with the LEFT target, move through the 8 item sequence','center',.2*screen_properties.height_res_pix,black);
-        for i = 1:NUMBER_OF_TARGETS
-            Screen('TextSize',mainWin,50);
-            Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
-        end
-        Screen('Flip',mainWin);
-    end
-
-    %Correct sequence needed
-    counter = 0;
-    disp_tmp=[];
-    position.t0_post_2 = GetSecs;
-    disp_number='';
-    draw='target';
-    first_trial_iteration = true;
-    first_return_iteration = true;
-    fprintf(eventlog,notice_format,['::Post movement (forced) sequence started at ',datestr(now),', with machine clock reading ',num2str(position.t0),'.::']);
-
-    while(counter < length(SEQUENCE))
-
-        if done_with_post_test
-            break;
-        end
-        
-        position = update_absolute_pos_data(position,reverse_y_bool);
-
-        %get polar coords of current pos
-        mag_d = position.polar(size(position.polar,1),2);
-        theta_d = position.polar(size(position.polar,1),1);
-
-        %draw cursor centered on the current position
-        cursor_subtends.center_on_position = position.rect(size(position.rect,1),:);
-        cursor_rect = rect_subtend_distance_mm(cursor_subtends);
-        %Screen('FillOval',mainWin,white,cursor_rect);
-        Screen('DrawTexture',mainWin,cursor_tex,[],cursor_rect);
-
-        switch draw
-            case 'return'
-                
-                Screen('DrawTexture',mainWin,target_tex,[],home.rect);
-            
-                if mag_d < RETURN_TARGET_RADIUS_MM 
-
-                    if first_return_iteration
-                       return_onset = GetSecs - position.t0_post_2;
-                       nth_return_onset = return_onset;
-                       first_return_iteration = false;
-                    end
-
-                    time_on_target = (GetSecs - position.t0_post_2) - nth_return_onset; 
-
-                        if time_on_target >= RETURN_TIME_ON_TARGET
-                            
-                            draw = 'target';
-                            
-                            first_return_iteration = true;
-                        end
-                else
-                    nth_target_onset = GetSecs - position.t0_post_2;
-                    time_on_target = 0;
-                end
-                
-            case 'target'
-                
-                
-                for i = 1:NUMBER_OF_TARGETS
-                    Screen('TextSize',mainWin,50);
-                    Screen('DrawTexture',mainWin,target_tex,[],target(i).rect);
-                end
-                
-                if mag_d > TARGET_DIST_FROM_CENTER_MM - TARGET_RADIUS_MM
-
-                    if first_trial_iteration
-                       target_onset = GetSecs - position.t0_post_2;
-                       nth_target_onset = target_onset;
-                       first_trial_iteration = false;
-                    end
-                    
-                    
-                    time_on_target = (GetSecs - position.t0_post_2) - nth_target_onset; 
-
-                    if time_on_target >= TRIAL_TIME_ON_TARGET
-
-                        
-                        if theta_d<2*pi()/(2*NUMBER_OF_TARGETS)
-                            disp_tmp(length(disp_tmp)+1)=NUMBER_OF_TARGETS;
-                        else
-                            disp_tmp(length(disp_tmp)+1)=find(abs(targ_thetas-theta_d)==min(abs(targ_thetas-theta_d)));
-                        end
-
-                        
-                        disp_number(length(disp_number)+1) = num2str(disp_tmp(length(disp_tmp)));
-                        if disp_tmp(length(disp_tmp)) == SEQUENCE(counter+1)
-                            disp_tmp=[];
-                            draw = 'return';
-                            disp_number(length(disp_number)+1) = '-';
-                            counter = counter+1; 
-                        end
-                        
-                        first_trial_iteration = true;
-                    end
-
-                else
-                    nth_target_onset = GetSecs - position.t0_post_2;
-                    time_on_target = 0;
-                end
-
-        end
-
-
-        Screen('Flip',mainWin);
-        flip_time = GetSecs - position.t0;
-        [pressed firstPress firstRelease lastPress lastRelease] = KbQueueCheck();
-        if pressed
-            key_ids = find(firstPress);
-            first_times = firstPress(key_ids) + flip_time;
-            last_times = lastPress(key_ids) + flip_time;
-            key_queue = [0,0];
-            queue_counter = 1;
-            for key = 1:length(key_ids)
-                key_queue(queue_counter,:) = [key_ids(key),first_times(key)];
-                queue_counter = queue_counter + 1;
-
-                if first_times(key) ~= last_times(key)
-                    key_queue(queue_counter,:) = [key_ids(key),last_times(key)];
-                    queue_counter = queue_counter + 1;
-                end
-            end
-            time_sorted_key_queue = sortrows(key_queue,2);
-            for i = 1:length(time_sorted_key_queue(:,1))
-                if time_sorted_key_queue(i,1) == TRIGGER_KEY
-                    if ttl_counter <= length(TTL_QUEUE)
-                        expected_ttl_arrival_time = num2str(TTL_QUEUE(ttl_counter));
-                    else
-                        expected_ttl_arrival_time = inf;
-                    end
-
-                    fprintf(eventlog,notice_format,['::TTL #',num2str(ttl_counter),' expected: ',expected_ttl_arrival_time,' recorded: ',num2str(flip_time),' ::']);
-                    ttl_counter = ttl_counter + 1;
-                end
-                fprintf(eventlog,key_format,KbName(time_sorted_key_queue(i,1)),flip_time);
-            end
-
-            if any(key_ids == QUIT_KEY)
-                fprintf(eventlog,notice_format,['::Experimenter quit at ',datestr(now),', with machine clock reading ',num2str(GetSecs - position.t0),'.::']);
-                sca;
-                return;
-            end
-        end
-    end
-    disp(disp_number)
-    type_of_post='forced crct:';
-    fprintf(postfile,postformatstring,type_of_post,disp_number);
-end
-
-
-
 
 sca
 %save('./util/cb.mat','counterbal');
