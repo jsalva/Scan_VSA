@@ -1,4 +1,4 @@
-function VSA_joystick_selfpaced(subject_id,run,counterbalance)
+function VSA_joystick_selfpaced(subject_id,run,counterbalance,scanner)
 
 reverse_y_bool = true;
 Screen('Preference', 'SkipSyncTests', 1)
@@ -362,7 +362,7 @@ stationary_rect = rect_subtend_distance_mm(subtends);
 
 scale_width = -.2;
 
-TRIGGER_KEY = KbName('=+');
+TRIGGER_KEY = KbName('2');
 QUIT_KEY = KbName('q');
 ttl_counter = 1;
 
@@ -373,53 +373,75 @@ ttl_counter = 1;
 keyboard = GetKeyboardIndices('Apple Internal Keyboard / Trackpad');
 KbQueueCreate(keyboard)
 KbQueueStart()
+
+joystick = GetGamepadIndices;
+elements = PsychHID('Elements',joystick);
+for i = 1:length(elements)
+    if strcmp(elements(i).usageName,'Button #2')
+        joystick_trigger = i;
+    end
+end
+disp(joystick_trigger);
 %%%%%%%%%%%GET QUEUE SET UP%%%%%%%%%%%%%%%%%%%%%%%%%
 fprintf(eventlog,notice_format,['::Queue started at ',datestr(now),', with machine clock reading ',num2str(GetSecs),'.::']);
 
 while(1)
     
-    
-    queue_time = GetSecs;
-    [pressed firstPress firstRelease lastPress lastRelease] = KbQueueCheck();
-    if pressed
-        key_ids = find(firstPress);
-        first_times = firstPress(key_ids)+ queue_time;
-        last_times = lastPress(key_ids) + queue_time;
-        key_queue = [0,0];
-        queue_counter = 1;
-        for key = 1:length(key_ids)
-            key_queue(queue_counter,:) = [key_ids(key),first_times(key)];
-            queue_counter = queue_counter + 1;
-
-            if first_times(key) ~= last_times(key)
-                key_queue(queue_counter,:) = [key_ids(key),last_times(key)];
+    if ~ scanner
+        queue_time = GetSecs;
+        [pressed firstPress firstRelease lastPress lastRelease] = KbQueueCheck();
+        if pressed
+            key_ids = find(firstPress);
+            first_times = firstPress(key_ids)+ queue_time;
+            last_times = lastPress(key_ids) + queue_time;
+            key_queue = [0,0];
+            queue_counter = 1;
+            for key = 1:length(key_ids)
+                key_queue(queue_counter,:) = [key_ids(key),first_times(key)];
                 queue_counter = queue_counter + 1;
-            end
-        end
-        time_sorted_key_queue = sortrows(key_queue,2);
-        for i = 1:length(time_sorted_key_queue(:,1))
-            if time_sorted_key_queue(i,1) == TRIGGER_KEY
-                position.t0 = GetSecs;%time_sorted_key_queue(i,2);
-                fprintf(eventlog,notice_format,['::Experiment started at ',datestr(now),', with machine clock reading ',num2str(position.t0),'.::']);
-                fprintf(eventlog,notice_format,['::TTL #',num2str(ttl_counter),' expected (time-based): ',num2str(round((GetSecs-position.t0)/TR_DURATION)),' recorded: 0 ::']);
-                ttl_counter = ttl_counter + 1;
-                fprintf(eventlog,key_format,KbName(time_sorted_key_queue(i,1)),time_sorted_key_queue(i,2));
-                
-            else
-                fprintf(eventlog,key_format,KbName(time_sorted_key_queue(i,1)),time_sorted_key_queue(i,2));
-            end
-        end
 
-        if any(key_ids == TRIGGER_KEY)
-           break; 
+                if first_times(key) ~= last_times(key)
+                    key_queue(queue_counter,:) = [key_ids(key),last_times(key)];
+                    queue_counter = queue_counter + 1;
+                end
+            end
+            time_sorted_key_queue = sortrows(key_queue,2);
+            for i = 1:length(time_sorted_key_queue(:,1))
+                if time_sorted_key_queue(i,1) == TRIGGER_KEY
+                    position.t0 = GetSecs;%time_sorted_key_queue(i,2);
+                    fprintf(eventlog,notice_format,['::Experiment started at ',datestr(now),', with machine clock reading ',num2str(position.t0),'.::']);
+                    fprintf(eventlog,notice_format,['::TTL #',num2str(ttl_counter),' expected (time-based): ',num2str(round((GetSecs-position.t0)/TR_DURATION)),' recorded: 0 ::']);
+                    ttl_counter = ttl_counter + 1;
+                    fprintf(eventlog,key_format,KbName(time_sorted_key_queue(i,1)),time_sorted_key_queue(i,2));
+
+                else
+                    fprintf(eventlog,key_format,KbName(time_sorted_key_queue(i,1)),time_sorted_key_queue(i,2));
+                end
+            end
+
+            if any(key_ids == TRIGGER_KEY)
+               break; 
+            end
+
+            if any(key_ids == QUIT_KEY)
+                fprintf(eventlog,notice_format,['::Experimenter quit at ',datestr(now),', with machine clock reading ',num2str(GetSecs),'.::']);
+                sca;
+                return;
+            end
         end
-        
-        if any(key_ids == QUIT_KEY)
-            fprintf(eventlog,notice_format,['::Experimenter quit at ',datestr(now),', with machine clock reading ',num2str(GetSecs),'.::']);
-            sca;
-            return;
+    else
+        disp(joystick)
+        disp(joystick_trigger)
+        disp(PsychHID('RawState',joystick,joystick_trigger))
+        if PsychHID('RawState',joystick,joystick_trigger)==1
+            position.t0 = GetSecs;%time_sorted_key_queue(i,2);
+            fprintf(eventlog,notice_format,['::Experiment started at ',datestr(now),', with machine clock reading ',num2str(position.t0),'.::']);
+            fprintf(eventlog,notice_format,['::TTL #',num2str(ttl_counter),' expected (time-based): ',num2str(round((GetSecs-position.t0)/TR_DURATION)),' recorded: 0 ::']);
+            ttl_counter = ttl_counter + 1;
+            break; 
         end
     end
+    
     subtends.center_on_position = screen_properties.origin + [0 0 scale_width*screen_properties.width_res_pix .2*screen_properties.height_res_pix];
     moving_rect = rect_subtend_distance_mm(subtends);
     scale_width = scale_width - .02*scale_width;
