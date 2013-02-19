@@ -100,19 +100,33 @@ if scanner
     end
     
 else
-    BLOCK_STRUCTURE = {'RD','SD','RD','RI','RD'};
-    NUMBER_OF_SEQUENCE_REPEATS_PER_BLOCK = [5 20 5 20 5];
+    if (run == 1)
+        BLOCK_STRUCTURE = {'RD','SD','RD'};
+        NUMBER_OF_SEQUENCE_REPEATS_PER_BLOCK = [5 20 5];
 
-    CUE_DURATION = 0.5;
+        CUE_DURATION = 0.5;
 
-    TRIAL_DURATION = inf;
-    TRIAL_TIME_ON_TARGET = 0.1;
+        TRIAL_DURATION = inf;
+        TRIAL_TIME_ON_TARGET = 0.1;
 
-    RETURN_DURATION = inf;
-    RETURN_TIME_ON_TARGET = 0.1;
+        RETURN_DURATION = inf;
+        RETURN_TIME_ON_TARGET = 0.1;
 
-    REST_DURATION = 12;
-    
+        REST_DURATION = 12;
+    elseif (run ==2)
+        BLOCK_STRUCTURE = {'RD','RI','RD'};
+        NUMBER_OF_SEQUENCE_REPEATS_PER_BLOCK = [5 20 5];
+
+        CUE_DURATION = 0.5;
+
+        TRIAL_DURATION = inf;
+        TRIAL_TIME_ON_TARGET = 0.1;
+
+        RETURN_DURATION = inf;
+        RETURN_TIME_ON_TARGET = 0.1;
+
+        REST_DURATION = 12;
+    end
 end
 
 
