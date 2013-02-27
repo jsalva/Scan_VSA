@@ -1,0 +1,1 @@
+Trial	Type	Target/Home(1,0)	Target #	Time(s)	Xpos	Ypos	Xvel	Yvel	Xaccel	Yaccel	Xerror	Yerror	Xprojection	Yprojection

@@ -1,0 +1,4 @@
+Guess about targets:	i didnt notice anything weird about them
+numbers:	13241342
+movements:	11324134
+forced crct:	2-1111111334-1-3-4-2-11111111113-1-

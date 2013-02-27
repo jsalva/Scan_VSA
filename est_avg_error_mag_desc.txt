@@ -1,0 +1,14 @@
+For each time point, we calculated the projection of the current position vector onto a unit vector in the direction of the target. 
+The error vector at each time point was then determined by subtracting the projection from the current position.
+we created a matrix to store the error values as a function of projection distance, rather than time (to avoid biasing error estimates
+towards inactivity along the trajectory). In order to characterize the curvature of the mouse trajectory:
+2)we used linear interpolation to upsample the error values (y) along 0.01mm increments along the projection distance (x)
+3)we calculated the area under the error_magnitude vs accumulated projection_distance curve
+4)we calculated the average error per 0.01mm increment of projection distance as our estimate of average error magnitude
+5)we stored the raw maximum error magnitude from the unprocessed data
+
+some things to keep  in mind:
+If the participant moves exactly perpendicular or near perpendicular to the target, this estimate will have insufficient observations 
+along the domain (accumulated projection distance) to reliably estimate the average error. Thus, it is important to also observe the
+angular end-point error for each trial
+

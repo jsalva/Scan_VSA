@@ -1,0 +1,30 @@
+::Queue started at 19-Feb-2013 11:24:45, with machine clock reading 54727.8181.::
+::Experiment started at 19-Feb-2013 11:24:48, with machine clock reading 54731.0821.::
+::TTL #1 expected (time-based): 0 recorded: 0 ::
+space	109462.1441
+::Onset of cue expected: [N/A SELF PACED]  recorded: 0.013344 ::
+cue	0.0133
+::Onset of trial expected: [N/A SELF PACED]  recorded: 0.75829 ::
+trial	0.7583
+::Onset of return expected: [N/A SELF PACED]  recorded: 1.608 ::
+return	1.6080
+::Onset of trial expected: [N/A SELF PACED]  recorded: 2.2917 ::
+trial	2.2917
+::Onset of return expected: [N/A SELF PACED]  recorded: 3.0251 ::
+return	3.0251
+::Onset of trial expected: [N/A SELF PACED]  recorded: 3.742 ::
+trial	3.7420
+::Onset of return expected: [N/A SELF PACED]  recorded: 4.4592 ::
+return	4.4592
+::Onset of trial expected: [N/A SELF PACED]  recorded: 5.1754 ::
+trial	5.1754
+::Onset of return expected: [N/A SELF PACED]  recorded: 6.0251 ::
+return	6.0251
+::Onset of trial expected: [N/A SELF PACED]  recorded: 6.7425 ::
+trial	6.7425
+::Onset of return expected: [N/A SELF PACED]  recorded: 7.4594 ::
+return	7.4594
+LeftControl	8.0760
+::Onset of trial expected: [N/A SELF PACED]  recorded: 8.0916 ::
+trial	8.0916
+c	8.2259

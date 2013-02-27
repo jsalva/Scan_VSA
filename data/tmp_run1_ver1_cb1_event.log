@@ -1,0 +1,74 @@
+::Queue started at 13-Jan-2013 21:27:15, with machine clock reading 170696.6557.::
+::Experiment started at 13-Jan-2013 21:27:16, with machine clock reading 170697.3004.::
+::TTL #1 expected: 0 recorded: 0 ::
+=+	341394.5820
+::Onset of cue expected: 0 recorded: 0.03011 ::
+cue	0.0301
+::Onset of trial expected: 0.5 recorded: 0.54714 ::
+trial	0.5471
+::Onset of iti expected: 2 recorded: 2.0465 ::
+iti	2.0465
+::Onset of trial expected: 2.25 recorded: 2.2801 ::
+trial	2.2801
+::Onset of iti expected: 3.75 recorded: 3.7973 ::
+iti	3.7973
+::Onset of trial expected: 4 recorded: 4.0304 ::
+trial	4.0304
+::Onset of iti expected: 5.5 recorded: 5.5309 ::
+iti	5.5309
+::Onset of trial expected: 5.75 recorded: 5.7808 ::
+trial	5.7808
+::Onset of iti expected: 7.25 recorded: 7.2808 ::
+iti	7.2808
+::Onset of trial expected: 7.5 recorded: 7.5311 ::
+trial	7.5311
+::Onset of iti expected: 9 recorded: 9.0309 ::
+iti	9.0309
+::Onset of trial expected: 9.25 recorded: 9.281 ::
+trial	9.2810
+::Onset of iti expected: 10.75 recorded: 10.7813 ::
+iti	10.7813
+::Onset of trial expected: 11 recorded: 11.0319 ::
+trial	11.0319
+::Onset of iti expected: 12.5 recorded: 12.5322 ::
+iti	12.5322
+::Onset of trial expected: 12.75 recorded: 12.7819 ::
+trial	12.7819
+::Onset of iti expected: 14.25 recorded: 14.2816 ::
+iti	14.2816
+::Onset of trial expected: 14.5 recorded: 14.5319 ::
+trial	14.5319
+::Onset of iti expected: 16 recorded: 16.0488 ::
+iti	16.0488
+::Onset of trial expected: 16.25 recorded: 16.2829 ::
+trial	16.2829
+::Onset of iti expected: 17.75 recorded: 17.7828 ::
+iti	17.7828
+::Onset of trial expected: 18 recorded: 18.0325 ::
+trial	18.0325
+::Onset of iti expected: 19.5 recorded: 19.5326 ::
+iti	19.5326
+::Onset of trial expected: 19.75 recorded: 19.7833 ::
+trial	19.7833
+::Onset of iti expected: 21.25 recorded: 21.2826 ::
+iti	21.2826
+::Onset of trial expected: 21.5 recorded: 21.5332 ::
+trial	21.5332
+::Onset of iti expected: 23 recorded: 23.0494 ::
+iti	23.0494
+::Onset of trial expected: 23.25 recorded: 23.2829 ::
+trial	23.2829
+::Onset of iti expected: 24.75 recorded: 24.784 ::
+iti	24.7840
+::Onset of trial expected: 25 recorded: 25.0339 ::
+trial	25.0339
+::Onset of iti expected: 26.5 recorded: 26.517 ::
+iti	26.5170
+::Onset of trial expected: 26.75 recorded: 26.7671 ::
+trial	26.7671
+::Onset of iti expected: 28.25 recorded: 28.2679 ::
+iti	28.2679
+::Onset of rest expected: 28.5 recorded: 28.5338 ::
+rest	28.5338
+LeftControl	30.6518
+c	31.0515

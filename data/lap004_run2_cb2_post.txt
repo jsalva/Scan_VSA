@@ -1,0 +1,4 @@
+Guess about targets:	no not really
+numbers:	31324314
+movements:	31324231
+forced crct:	2-4-22222222222221-3-4-2-3-1-

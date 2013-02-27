@@ -1,0 +1,5 @@
+Trial	Type	Onset	Target #	Time to Target	Endpoint Error	Est. Avg. Error Mag	Accum. Error x dMagProj	Max Error Mag.	Max Error Pos. (% of trajectory)	Feedback	Target (1)/Return (0)
+1	1	0.8037	3	2.7196	-3.141593	1.050655e+01	1.045104e+03	2.518335e+01	52.2453	0	1
+1	0	3.7049	3	0.3019	0.000000	2.973655e+00	7.262468e+02	5.591689e+00	53.1799	1	0
+2	1	4.3213	1	1.5014	0.098348	1.332630e+01	1.321875e+03	2.421714e+01	63.4290	1	1
+2	0	5.9880	1	0.3845	0.000000	5.382024e+00	1.013210e+03	8.871207e+00	54.6622	1	0

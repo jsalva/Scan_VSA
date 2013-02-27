@@ -1,0 +1,7 @@
+Event Number	Event Type	Onset
+1	cue	0.0201744100
+2	trial	0.8036902820
+3	return	3.7048962020
+4	trial	4.3213358580
+5	return	5.9880407390
+6	trial	6.7037722660

@@ -1,0 +1,3 @@
+Event Number	Event Type	Onset
+1	cue	0.0160948570
+2	trial	0.7661655251

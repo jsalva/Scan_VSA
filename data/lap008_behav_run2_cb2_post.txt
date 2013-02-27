@@ -1,0 +1,4 @@
+Guess about targets:	kind of. it seemed like they were going from top to \nbottom then left to right from some points and random \nother times
+numbers:	31241342
+movements:	31241342
+forced crct:	2-4-1-3-4-2-3-1-

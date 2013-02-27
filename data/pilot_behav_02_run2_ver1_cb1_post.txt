@@ -1,0 +1,4 @@
+Guess about targets:	sometimes i could predict where the next target would \nbe. it was often across from the previous trial. \nalso, at the beginning of each block, the targets \nhad specific patterns for the first 4 trials... \nthey'd usually go clockwise. if they didn't \ngo clockwise, i couldn't predict the rest of the \ntrial locations as effectively. on the square \nblocks, i didn't notice anything. too busy freaking \nout.
+numbers:	32141324
+movements:	32141342
+forced crct:	332-11114-31-3-214-32-13-1-

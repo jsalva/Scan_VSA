@@ -1,0 +1,61 @@
+::Queue started at 07-Feb-2013 14:51:23, with machine clock reading 653431.9003.::
+::Experiment started at 07-Feb-2013 14:51:27, with machine clock reading 653436.0657.::
+::TTL #1 expected (time-based): 0 recorded: 0 ::
+space	1306872.1171
+::Onset of cue expected: [N/A SELF PACED]  recorded: 0.016877 ::
+cue	0.0169
+::Onset of trial expected: [N/A SELF PACED]  recorded: 0.5498 ::
+trial	0.5498
+::Onset of return expected: [N/A SELF PACED]  recorded: 1.5168 ::
+return	1.5168
+::Onset of trial expected: [N/A SELF PACED]  recorded: 2.2332 ::
+trial	2.2332
+::Onset of return expected: [N/A SELF PACED]  recorded: 2.9504 ::
+return	2.9504
+::Onset of trial expected: [N/A SELF PACED]  recorded: 3.6673 ::
+trial	3.6673
+::Onset of return expected: [N/A SELF PACED]  recorded: 4.4503 ::
+return	4.4503
+::Onset of trial expected: [N/A SELF PACED]  recorded: 5.0844 ::
+trial	5.0844
+::Onset of return expected: [N/A SELF PACED]  recorded: 5.8004 ::
+return	5.8004
+::Onset of trial expected: [N/A SELF PACED]  recorded: 6.5179 ::
+trial	6.5179
+::Onset of return expected: [N/A SELF PACED]  recorded: 7.2682 ::
+return	7.2682
+::Onset of trial expected: [N/A SELF PACED]  recorded: 7.9841 ::
+trial	7.9841
+::Onset of return expected: [N/A SELF PACED]  recorded: 8.8341 ::
+return	8.8341
+::Onset of trial expected: [N/A SELF PACED]  recorded: 9.5519 ::
+trial	9.5519
+::Onset of return expected: [N/A SELF PACED]  recorded: 10.2689 ::
+return	10.2689
+::Onset of trial expected: [N/A SELF PACED]  recorded: 10.9853 ::
+trial	10.9853
+::Onset of return expected: [N/A SELF PACED]  recorded: 11.7017 ::
+return	11.7017
+::Onset of trial expected: [N/A SELF PACED]  recorded: 12.4188 ::
+trial	12.4188
+::Onset of return expected: [N/A SELF PACED]  recorded: 13.3022 ::
+return	13.3022
+::Onset of trial expected: [N/A SELF PACED]  recorded: 14.0185 ::
+trial	14.0185
+::Onset of return expected: [N/A SELF PACED]  recorded: 14.9852 ::
+return	14.9852
+::Onset of trial expected: [N/A SELF PACED]  recorded: 15.7017 ::
+trial	15.7017
+::Onset of return expected: [N/A SELF PACED]  recorded: 16.4185 ::
+return	16.4185
+::Onset of trial expected: [N/A SELF PACED]  recorded: 17.1362 ::
+trial	17.1362
+::Onset of return expected: [N/A SELF PACED]  recorded: 17.8524 ::
+return	17.8524
+::Onset of trial expected: [N/A SELF PACED]  recorded: 18.5687 ::
+trial	18.5687
+::Onset of return expected: [N/A SELF PACED]  recorded: 19.57 ::
+return	19.5700
+::Onset of trial expected: [N/A SELF PACED]  recorded: 20.2862 ::
+trial	20.2862
+LeftControl	20.4698

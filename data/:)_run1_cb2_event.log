@@ -1,0 +1,121 @@
+::Queue started at 23-Jan-2013 13:07:02, with machine clock reading 327212.2146.::
+::Experiment started at 23-Jan-2013 13:07:03, with machine clock reading 327213.3204.::
+::TTL #1 expected: 0 recorded: 0 ::
+=+	654426.6069
+::Onset of cue expected: 0 recorded: 0.030986 ::
+cue	0.0310
+::Onset of trial expected: 0.5 recorded: 0.54853 ::
+trial	0.5485
+::Onset of iti expected: 1.7 recorded: 1.7475 ::
+iti	1.7475
+::Onset of trial expected: 1.9 recorded: 1.9308 ::
+trial	1.9308
+::Onset of iti expected: 3.1 recorded: 3.1485 ::
+iti	3.1485
+::Onset of trial expected: 3.3 recorded: 3.3317 ::
+trial	3.3317
+::Onset of iti expected: 4.5 recorded: 4.5478 ::
+iti	4.5478
+::Onset of trial expected: 4.7 recorded: 4.7314 ::
+trial	4.7314
+::Onset of iti expected: 5.9 recorded: 5.9489 ::
+iti	5.9489
+::Onset of trial expected: 6.1 recorded: 6.1313 ::
+trial	6.1313
+::Onset of iti expected: 7.3 recorded: 7.3491 ::
+iti	7.3491
+::Onset of trial expected: 7.5 recorded: 7.5317 ::
+trial	7.5317
+::Onset of iti expected: 8.7 recorded: 8.7489 ::
+iti	8.7489
+::Onset of trial expected: 8.9 recorded: 8.9321 ::
+trial	8.9321
+::Onset of iti expected: 10.1 recorded: 10.1492 ::
+iti	10.1492
+::Onset of trial expected: 10.3 recorded: 10.3323 ::
+trial	10.3323
+::Onset of iti expected: 11.5 recorded: 11.5496 ::
+iti	11.5496
+::Onset of trial expected: 11.7 recorded: 11.7329 ::
+trial	11.7329
+::Onset of iti expected: 12.9 recorded: 12.9323 ::
+iti	12.9323
+::Onset of trial expected: 13.1 recorded: 13.1334 ::
+trial	13.1334
+::Onset of iti expected: 14.3 recorded: 14.3496 ::
+iti	14.3496
+::Onset of trial expected: 14.5 recorded: 14.5164 ::
+trial	14.5164
+::Onset of iti expected: 15.7 recorded: 15.7336 ::
+iti	15.7336
+::Onset of trial expected: 15.9 recorded: 15.9166 ::
+trial	15.9166
+::Onset of iti expected: 17.1 recorded: 17.1334 ::
+iti	17.1334
+::Onset of trial expected: 17.3 recorded: 17.3168 ::
+trial	17.3168
+::Onset of iti expected: 18.5 recorded: 18.5341 ::
+iti	18.5341
+::Onset of trial expected: 18.7 recorded: 18.7165 ::
+trial	18.7165
+::Onset of iti expected: 19.9 recorded: 19.9337 ::
+iti	19.9337
+::Onset of trial expected: 20.1 recorded: 20.1179 ::
+trial	20.1179
+::Onset of iti expected: 21.3 recorded: 21.3345 ::
+iti	21.3345
+::Onset of trial expected: 21.5 recorded: 21.5175 ::
+trial	21.5175
+::Onset of iti expected: 22.7 recorded: 22.7171 ::
+iti	22.7171
+::Onset of rest expected: 22.9 recorded: 22.9175 ::
+rest	22.9175
+::Onset of cue expected: 34.9 recorded: 34.9195 ::
+cue	34.9195
+::Onset of trial expected: 35.4 recorded: 35.4362 ::
+trial	35.4362
+::Onset of iti expected: 37.3 recorded: 37.3194 ::
+iti	37.3194
+::Onset of trial expected: 37.5 recorded: 37.5201 ::
+trial	37.5201
+::Onset of iti expected: 39.4 recorded: 39.4373 ::
+iti	39.4373
+::Onset of trial expected: 39.6 recorded: 39.6197 ::
+trial	39.6197
+::Onset of iti expected: 41.5 recorded: 41.5373 ::
+iti	41.5373
+::Onset of trial expected: 41.7 recorded: 41.7209 ::
+trial	41.7209
+::Onset of iti expected: 43.6 recorded: 43.6209 ::
+iti	43.6209
+::Onset of trial expected: 43.8 recorded: 43.8209 ::
+trial	43.8209
+::Onset of iti expected: 45.7 recorded: 45.7208 ::
+iti	45.7208
+::Onset of trial expected: 45.9 recorded: 45.9207 ::
+trial	45.9207
+::Onset of iti expected: 47.8 recorded: 47.8217 ::
+iti	47.8217
+::Onset of trial expected: 48 recorded: 48.0213 ::
+trial	48.0213
+::Onset of iti expected: 49.9 recorded: 49.9223 ::
+iti	49.9223
+::Onset of trial expected: 50.1 recorded: 50.1215 ::
+trial	50.1215
+::Onset of iti expected: 52 recorded: 52.0228 ::
+iti	52.0228
+::Onset of trial expected: 52.2 recorded: 52.2217 ::
+trial	52.2217
+::Onset of iti expected: 54.1 recorded: 54.1228 ::
+iti	54.1228
+::Onset of trial expected: 54.3 recorded: 54.3223 ::
+trial	54.3223
+::Onset of iti expected: 56.2 recorded: 56.2224 ::
+iti	56.2224
+::Onset of trial expected: 56.4 recorded: 56.4229 ::
+trial	56.4229
+::Onset of iti expected: 58.3 recorded: 58.3233 ::
+iti	58.3233
+::Onset of trial expected: 58.5 recorded: 58.5198 ::
+trial	58.5198
+LeftControl	58.9523

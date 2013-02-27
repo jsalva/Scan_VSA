@@ -1,0 +1,269 @@
+::Queue started at 14-Jan-2013 20:11:59, with machine clock reading 195029.5234.::
+::Experiment started at 14-Jan-2013 20:12:17, with machine clock reading 195047.1903.::
+::TTL #1 expected: 0 recorded: 0 ::
+=+	390094.3639
+::Onset of cue expected: 0 recorded: 0.016115 ::
+cue	0.0161
+::Onset of trial expected: 0.5 recorded: 0.53258 ::
+trial	0.5326
+::Onset of iti expected: 1.7 recorded: 1.7323 ::
+iti	1.7323
+::Onset of trial expected: 1.9 recorded: 1.932 ::
+trial	1.9320
+::Onset of iti expected: 3.1 recorded: 3.1317 ::
+iti	3.1317
+::Onset of trial expected: 3.3 recorded: 3.3317 ::
+trial	3.3317
+::Onset of iti expected: 4.5 recorded: 4.5313 ::
+iti	4.5313
+::Onset of trial expected: 4.7 recorded: 4.7312 ::
+trial	4.7312
+::Onset of iti expected: 5.9 recorded: 5.9308 ::
+iti	5.9308
+::Onset of trial expected: 6.1 recorded: 6.1308 ::
+trial	6.1308
+::Onset of iti expected: 7.3 recorded: 7.3304 ::
+iti	7.3304
+::Onset of trial expected: 7.5 recorded: 7.5303 ::
+trial	7.5303
+::Onset of iti expected: 8.7 recorded: 8.7299 ::
+iti	8.7299
+::Onset of trial expected: 8.9 recorded: 8.93 ::
+trial	8.9300
+::Onset of iti expected: 10.1 recorded: 10.1294 ::
+iti	10.1294
+::Onset of trial expected: 10.3 recorded: 10.3293 ::
+trial	10.3293
+::Onset of iti expected: 11.5 recorded: 11.529 ::
+iti	11.5290
+::Onset of trial expected: 11.7 recorded: 11.7289 ::
+trial	11.7289
+::Onset of iti expected: 12.9 recorded: 12.9279 ::
+iti	12.9279
+::Onset of trial expected: 13.1 recorded: 13.1278 ::
+trial	13.1278
+::Onset of iti expected: 14.3 recorded: 14.3275 ::
+iti	14.3275
+::Onset of trial expected: 14.5 recorded: 14.5274 ::
+trial	14.5274
+::Onset of iti expected: 15.7 recorded: 15.727 ::
+iti	15.7270
+::Onset of trial expected: 15.9 recorded: 15.9269 ::
+trial	15.9269
+::Onset of iti expected: 17.1 recorded: 17.1268 ::
+iti	17.1268
+::Onset of trial expected: 17.3 recorded: 17.3269 ::
+trial	17.3269
+::Onset of iti expected: 18.5 recorded: 18.5269 ::
+iti	18.5269
+::Onset of trial expected: 18.7 recorded: 18.7271 ::
+trial	18.7271
+::Onset of iti expected: 19.9 recorded: 19.9278 ::
+iti	19.9278
+::Onset of trial expected: 20.1 recorded: 20.1279 ::
+trial	20.1279
+::Onset of iti expected: 21.3 recorded: 21.328 ::
+iti	21.3280
+::Onset of trial expected: 21.5 recorded: 21.5281 ::
+trial	21.5281
+::Onset of iti expected: 22.7 recorded: 22.7282 ::
+iti	22.7282
+::Onset of rest expected: 22.9 recorded: 22.9282 ::
+rest	22.9282
+::Onset of cue expected: 34.9 recorded: 34.9301 ::
+cue	34.9301
+::Onset of trial expected: 35.4 recorded: 35.4302 ::
+trial	35.4302
+::Onset of iti expected: 36.6 recorded: 36.6205 ::
+iti	36.6205
+::Onset of trial expected: 36.8 recorded: 36.8205 ::
+trial	36.8205
+::Onset of iti expected: 38 recorded: 38.0195 ::
+iti	38.0195
+::Onset of trial expected: 38.2 recorded: 38.2193 ::
+trial	38.2193
+::Onset of iti expected: 39.4 recorded: 39.4189 ::
+iti	39.4189
+::Onset of trial expected: 39.6 recorded: 39.6189 ::
+trial	39.6189
+::Onset of iti expected: 40.8 recorded: 40.8185 ::
+iti	40.8185
+::Onset of trial expected: 41 recorded: 41.0184 ::
+trial	41.0184
+::Onset of iti expected: 42.2 recorded: 42.2181 ::
+iti	42.2181
+::Onset of trial expected: 42.4 recorded: 42.418 ::
+trial	42.4180
+::Onset of iti expected: 43.6 recorded: 43.6178 ::
+iti	43.6178
+::Onset of trial expected: 43.8 recorded: 43.8175 ::
+trial	43.8175
+::Onset of iti expected: 45 recorded: 45.0172 ::
+iti	45.0172
+::Onset of trial expected: 45.2 recorded: 45.2171 ::
+trial	45.2171
+::Onset of iti expected: 46.4 recorded: 46.4167 ::
+iti	46.4167
+::Onset of trial expected: 46.6 recorded: 46.6332 ::
+trial	46.6332
+::Onset of iti expected: 47.8 recorded: 47.8329 ::
+iti	47.8329
+::Onset of trial expected: 48 recorded: 48.0328 ::
+trial	48.0328
+::Onset of iti expected: 49.2 recorded: 49.2324 ::
+iti	49.2324
+::Onset of trial expected: 49.4 recorded: 49.4323 ::
+trial	49.4323
+::Onset of iti expected: 50.6 recorded: 50.6319 ::
+iti	50.6319
+::Onset of trial expected: 50.8 recorded: 50.832 ::
+trial	50.8320
+::Onset of iti expected: 52 recorded: 52.0321 ::
+iti	52.0321
+::Onset of trial expected: 52.2 recorded: 52.2322 ::
+trial	52.2322
+::Onset of iti expected: 53.4 recorded: 53.4323 ::
+iti	53.4323
+::Onset of trial expected: 53.6 recorded: 53.6324 ::
+trial	53.6324
+::Onset of iti expected: 54.8 recorded: 54.8333 ::
+iti	54.8333
+::Onset of trial expected: 55 recorded: 55.0332 ::
+trial	55.0332
+::Onset of iti expected: 56.2 recorded: 56.2167 ::
+iti	56.2167
+::Onset of trial expected: 56.4 recorded: 56.4168 ::
+trial	56.4168
+::Onset of iti expected: 57.6 recorded: 57.617 ::
+iti	57.6170
+::Onset of trial expected: 57.8 recorded: 57.8169 ::
+trial	57.8169
+::Onset of iti expected: 59 recorded: 59.0171 ::
+iti	59.0171
+::Onset of trial expected: 59.2 recorded: 59.2172 ::
+trial	59.2172
+::Onset of iti expected: 60.4 recorded: 60.4174 ::
+iti	60.4174
+::Onset of trial expected: 60.6 recorded: 60.6174 ::
+trial	60.6174
+::Onset of iti expected: 61.8 recorded: 61.8175 ::
+iti	61.8175
+::Onset of trial expected: 62 recorded: 62.0176 ::
+trial	62.0176
+::Onset of iti expected: 63.2 recorded: 63.2178 ::
+iti	63.2178
+::Onset of trial expected: 63.4 recorded: 63.4178 ::
+trial	63.4178
+::Onset of iti expected: 64.6 recorded: 64.618 ::
+iti	64.6180
+::Onset of trial expected: 64.8 recorded: 64.818 ::
+trial	64.8180
+::Onset of iti expected: 66 recorded: 66.0183 ::
+iti	66.0183
+::Onset of trial expected: 66.2 recorded: 66.2182 ::
+trial	66.2182
+::Onset of iti expected: 67.4 recorded: 67.4184 ::
+iti	67.4184
+::Onset of trial expected: 67.6 recorded: 67.6185 ::
+trial	67.6185
+::Onset of iti expected: 68.8 recorded: 68.8187 ::
+iti	68.8187
+::Onset of trial expected: 69 recorded: 69.0186 ::
+trial	69.0186
+::Onset of iti expected: 70.2 recorded: 70.2259 ::
+iti	70.2259
+::Onset of trial expected: 70.4 recorded: 70.4258 ::
+trial	70.4258
+::Onset of iti expected: 71.6 recorded: 71.6248 ::
+iti	71.6248
+::Onset of trial expected: 71.8 recorded: 71.8248 ::
+trial	71.8248
+::Onset of iti expected: 73 recorded: 73.0243 ::
+iti	73.0243
+::Onset of trial expected: 73.2 recorded: 73.2243 ::
+trial	73.2243
+::Onset of iti expected: 74.4 recorded: 74.4239 ::
+iti	74.4239
+::Onset of trial expected: 74.6 recorded: 74.6238 ::
+trial	74.6238
+::Onset of iti expected: 75.8 recorded: 75.8234 ::
+iti	75.8234
+::Onset of trial expected: 76 recorded: 76.0234 ::
+trial	76.0234
+::Onset of iti expected: 77.2 recorded: 77.223 ::
+iti	77.2230
+::Onset of trial expected: 77.4 recorded: 77.4229 ::
+trial	77.4229
+::Onset of iti expected: 78.6 recorded: 78.6227 ::
+iti	78.6227
+::Onset of trial expected: 78.8 recorded: 78.8224 ::
+trial	78.8224
+::Onset of iti expected: 80 recorded: 80.022 ::
+iti	80.0220
+::Onset of trial expected: 80.2 recorded: 80.2225 ::
+trial	80.2225
+::Onset of iti expected: 81.4 recorded: 81.4216 ::
+iti	81.4216
+::Onset of trial expected: 81.6 recorded: 81.6215 ::
+trial	81.6215
+::Onset of iti expected: 82.8 recorded: 82.821 ::
+iti	82.8210
+::Onset of trial expected: 83 recorded: 83.021 ::
+trial	83.0210
+::Onset of iti expected: 84.2 recorded: 84.2206 ::
+iti	84.2206
+::Onset of trial expected: 84.4 recorded: 84.4206 ::
+trial	84.4206
+::Onset of iti expected: 85.6 recorded: 85.6206 ::
+iti	85.6206
+::Onset of trial expected: 85.8 recorded: 85.8207 ::
+trial	85.8207
+::Onset of iti expected: 87 recorded: 87.021 ::
+iti	87.0210
+::Onset of trial expected: 87.2 recorded: 87.2209 ::
+trial	87.2209
+::Onset of iti expected: 88.4 recorded: 88.4217 ::
+iti	88.4217
+::Onset of trial expected: 88.6 recorded: 88.6216 ::
+trial	88.6216
+::Onset of iti expected: 89.8 recorded: 89.8218 ::
+iti	89.8218
+::Onset of trial expected: 90 recorded: 90.022 ::
+trial	90.0220
+::Onset of iti expected: 91.2 recorded: 91.2221 ::
+iti	91.2221
+::Onset of trial expected: 91.4 recorded: 91.4222 ::
+trial	91.4222
+::Onset of iti expected: 92.6 recorded: 92.6222 ::
+iti	92.6222
+::Onset of trial expected: 92.8 recorded: 92.8224 ::
+trial	92.8224
+::Onset of iti expected: 94 recorded: 94.0225 ::
+iti	94.0225
+::Onset of trial expected: 94.2 recorded: 94.2225 ::
+trial	94.2225
+::Onset of iti expected: 95.4 recorded: 95.4228 ::
+iti	95.4228
+::Onset of trial expected: 95.6 recorded: 95.6228 ::
+trial	95.6228
+::Onset of iti expected: 96.8 recorded: 96.823 ::
+iti	96.8230
+::Onset of trial expected: 97 recorded: 97.023 ::
+trial	97.0230
+::Onset of iti expected: 98.2 recorded: 98.2232 ::
+iti	98.2232
+::Onset of trial expected: 98.4 recorded: 98.4232 ::
+trial	98.4232
+::Onset of iti expected: 99.6 recorded: 99.6233 ::
+iti	99.6233
+::Onset of trial expected: 99.8 recorded: 99.8233 ::
+trial	99.8233
+::Onset of iti expected: 101 recorded: 101.0235 ::
+iti	101.0235
+::Onset of trial expected: 101.2 recorded: 101.2236 ::
+trial	101.2236
+::Onset of iti expected: 102.4 recorded: 102.4239 ::
+iti	102.4239
+::Onset of rest expected: 102.6 recorded: 102.6239 ::
+rest	102.6239
+LeftControl	106.1077

@@ -1,0 +1,123 @@
+import numpy as np
+from scipy.ndimage import label
+import matplotlib.pyplot as plt
+
+def autolabel(rects):
+    for rect in rects:
+        height = rect.get_height()
+        ax.text(rect.get_x()+rect.get_width()/2., 1.05*height, '%d'%int(height),
+                ha='center', va='bottom')
+
+subject_list = ['lap002']#,'lap004','lap005','lap006']
+
+data = {}
+data['lap002'] = [(['lap002_run1_cb1_summary.txt'],'vsa_sequence'),(['lap002_run2_cb1_summary.txt'],'vsa_perturb')]
+data['lap004'] = [(['lap004_run2_cb2_summary.txt'],'vsa_sequence'),(['lap004_run1_cb2_summary.txt'],'vsa_perturb')]
+data['lap005'] = [(['lap005_run1_cb1_summary.txt'],'vsa_sequence'),(['lap005_run2_cb1_summary.txt'],'vsa_perturb')]
+data['lap006'] = [(['lap006_run2_cb2_summary.txt'],'vsa_sequence'),(['lap006_run1_cb2_summary.txt'],'vsa_perturb')]
+
+condition={'RD':1,'SD':2,'RI':3, 1:'RD',2:'SD',3:'RI'}
+
+time_to_target=[]
+endpoint_error=[]
+accuracy=[]
+
+chunk_size = 8
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+for subject in subject_list:
+
+    sequence_labels = []
+    sequence_data_file = data[subject][0][0][0]
+    sequence_data = np.genfromtxt(sequence_data_file,skip_header=True)
+    sequence_data = sequence_data[sequence_data[:,1]!=0]
+    conditions = sequence_data[:,1]
+
+    tmp_time_to_target = []
+
+    for chunk in range(len(sequence_data)/chunk_size):
+        
+
+        chunk_data = sequence_data[chunk*chunk_size:(chunk+1)*chunk_size]
+        chunk_cond = condition[np.mean(chunk_data[:,1])]
+        chunk_correct = chunk_data[:,10] == 1
+        chunk_time_to_target = chunk_data[chunk_correct,4]
+        ax.plot(np.arange(chunk*chunk_size,(chunk+1)*chunk_size)/chunk_size,chunk_data[:,4],'o',color='black',alpha='0.2',linestyle='None')
+        
+        sequence_labels.append(chunk_cond)
+
+        tmp_time_to_target.append(np.median(chunk_time_to_target))
+
+
+    try:
+        time_to_target = np.vstack([time_to_target,tmp_time_to_target])
+    except:
+        time_to_target = tmp_time_to_target
+
+ind = np.arange(len(sequence_labels))
+width = 0
+linewidth = 0
+rects = ax.bar(ind, 
+     np.median(time_to_target,axis=0), 
+     width=width,
+     linewidth=linewidth, 
+     color = 'b',
+     yerr = np.std(time_to_target)/np.sqrt(len(subject_list)),
+     ecolor = 'k')
+
+for idx,median in enumerate(np.median(time_to_target,axis=0)):
+    color = 'blue' if sequence_labels[idx] == 'SD' else 'red'
+    ax.plot(idx,median,'o',linestyle='None',color = color)
+
+
+#fix subsequently
+medians = []
+start_idx = None
+end_idx = None
+curr_val = None
+for idx,val in enumerate(sequence_labels):
+    try:
+        print idx
+        if curr_val == val:
+            print "y"
+            medians.append(np.median(time_to_target,axis=0)[idx])
+            if idx == len(sequence_labels) - 1:
+                print "DONE!"
+                curr_val = val
+                end_idx = idx+1
+                print start_idx, end_idx
+                ax.plot(np.arange(start_idx,end_idx),np.repeat(np.mean(medians),end_idx - start_idx),linewidth=4,color='black')
+
+                medians = []
+                medians.append(np.median(time_to_target,axis=0)[idx])
+                start_idx = idx
+            
+        
+        else:
+                print "n"
+                curr_val = val
+                end_idx = idx
+                print start_idx, end_idx
+                ax.plot(np.arange(start_idx,end_idx),np.repeat(np.mean(medians),end_idx - start_idx),linewidth=4,color='black')
+                medians = []
+                medians.append(np.median(time_to_target,axis=0)[idx])
+                start_idx = idx
+         
+    except:
+        medians = []
+        curr_val = val
+        start_idx = idx
+        print "start idx!: %d"%(idx)
+        medians.append(np.median(time_to_target,axis=0)[idx])
+
+
+ax.set_ylabel('Time (s)')
+ax.set_title('Sequence Time to Target')
+ax.set_xticks(ind+width)
+ax.set_xticklabels(sequence_labels)
+ax.set_ylim([.25,1.25])
+#autolabel(rects)
+plt.show()
+
+
