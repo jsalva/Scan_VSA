@@ -1,0 +1,1132 @@
+::Queue started at 27-Feb-2013 11:29:16, with machine clock reading 2050.4198.::
+::Experiment started at 27-Feb-2013 11:29:20, with machine clock reading 2054.17.::
+::TTL #1 expected (time-based): 0 recorded: 0 ::
+=+	4108.3221
+::Onset of cue expected: [N/A SELF PACED]  recorded: 0.015275 ::
+cue	0.0153
+::Onset of trial expected: [N/A SELF PACED]  recorded: 0.54856 ::
+trial	0.5486
+::Onset of return expected: [N/A SELF PACED]  recorded: 2.949 ::
+return	2.9490
+::Onset of trial expected: [N/A SELF PACED]  recorded: 4.1825 ::
+trial	4.1825
+::Onset of return expected: [N/A SELF PACED]  recorded: 5.7661 ::
+return	5.7661
+::Onset of trial expected: [N/A SELF PACED]  recorded: 6.8329 ::
+trial	6.8329
+F11	8.0497
+F11	8.1164
+F11	8.4164
+::Onset of return expected: [N/A SELF PACED]  recorded: 8.4664 ::
+return	8.4664
+F11	8.9666
+::Onset of trial expected: [N/A SELF PACED]  recorded: 9.192 ::
+trial	9.1920
+::Onset of return expected: [N/A SELF PACED]  recorded: 12.1243 ::
+return	12.1243
+::Onset of trial expected: [N/A SELF PACED]  recorded: 13.44 ::
+trial	13.4400
+::Onset of return expected: [N/A SELF PACED]  recorded: 15.8897 ::
+return	15.8897
+::Onset of trial expected: [N/A SELF PACED]  recorded: 16.9721 ::
+trial	16.9721
+::Onset of return expected: [N/A SELF PACED]  recorded: 19.5546 ::
+return	19.5546
+::Onset of trial expected: [N/A SELF PACED]  recorded: 20.7209 ::
+trial	20.7209
+::Onset of return expected: [N/A SELF PACED]  recorded: 23.6865 ::
+return	23.6865
+::Onset of trial expected: [N/A SELF PACED]  recorded: 24.8701 ::
+trial	24.8701
+::Onset of return expected: [N/A SELF PACED]  recorded: 26.9355 ::
+return	26.9355
+::Onset of trial expected: [N/A SELF PACED]  recorded: 27.6528 ::
+trial	27.6528
+::Onset of return expected: [N/A SELF PACED]  recorded: 29.8859 ::
+return	29.8859
+::Onset of trial expected: [N/A SELF PACED]  recorded: 31.2866 ::
+trial	31.2866
+::Onset of return expected: [N/A SELF PACED]  recorded: 32.9869 ::
+return	32.9869
+::Onset of trial expected: [N/A SELF PACED]  recorded: 33.7037 ::
+trial	33.7037
+::Onset of return expected: [N/A SELF PACED]  recorded: 35.6373 ::
+return	35.6373
+::Onset of trial expected: [N/A SELF PACED]  recorded: 36.5375 ::
+trial	36.5375
+::Onset of return expected: [N/A SELF PACED]  recorded: 38.2877 ::
+return	38.2877
+::Onset of trial expected: [N/A SELF PACED]  recorded: 39.0044 ::
+trial	39.0044
+::Onset of return expected: [N/A SELF PACED]  recorded: 40.6713 ::
+return	40.6713
+::Onset of trial expected: [N/A SELF PACED]  recorded: 41.6883 ::
+trial	41.6883
+::Onset of return expected: [N/A SELF PACED]  recorded: 43.8219 ::
+return	43.8219
+::Onset of trial expected: [N/A SELF PACED]  recorded: 44.73 ::
+trial	44.7300
+::Onset of return expected: [N/A SELF PACED]  recorded: 46.2289 ::
+return	46.2289
+::Onset of trial expected: [N/A SELF PACED]  recorded: 46.9453 ::
+trial	46.9453
+::Onset of return expected: [N/A SELF PACED]  recorded: 49.0452 ::
+return	49.0452
+::Onset of rest expected: [N/A SELF PACED]  recorded: 49.7777 ::
+rest	49.7777
+::Onset of cue expected: [N/A SELF PACED]  recorded: 61.8079 ::
+cue	61.8079
+::Onset of trial expected: [N/A SELF PACED]  recorded: 62.3246 ::
+trial	62.3246
+::Onset of return expected: [N/A SELF PACED]  recorded: 63.9749 ::
+return	63.9749
+::Onset of trial expected: [N/A SELF PACED]  recorded: 64.825 ::
+trial	64.8250
+::Onset of return expected: [N/A SELF PACED]  recorded: 66.0253 ::
+return	66.0253
+::Onset of trial expected: [N/A SELF PACED]  recorded: 66.8921 ::
+trial	66.8921
+::Onset of return expected: [N/A SELF PACED]  recorded: 67.7588 ::
+return	67.7588
+::Onset of trial expected: [N/A SELF PACED]  recorded: 68.4756 ::
+trial	68.4756
+::Onset of return expected: [N/A SELF PACED]  recorded: 70.6426 ::
+return	70.6426
+::Onset of trial expected: [N/A SELF PACED]  recorded: 71.9595 ::
+trial	71.9595
+::Onset of return expected: [N/A SELF PACED]  recorded: 73.7931 ::
+return	73.7931
+::Onset of trial expected: [N/A SELF PACED]  recorded: 75.1767 ::
+trial	75.1767
+::Onset of return expected: [N/A SELF PACED]  recorded: 77.169 ::
+return	77.1690
+::Onset of trial expected: [N/A SELF PACED]  recorded: 78.0104 ::
+trial	78.0104
+::Onset of return expected: [N/A SELF PACED]  recorded: 80.8178 ::
+return	80.8178
+::Onset of trial expected: [N/A SELF PACED]  recorded: 82.5673 ::
+trial	82.5673
+::Onset of return expected: [N/A SELF PACED]  recorded: 84.25 ::
+return	84.2500
+::Onset of trial expected: [N/A SELF PACED]  recorded: 84.9664 ::
+trial	84.9664
+::Onset of return expected: [N/A SELF PACED]  recorded: 87.2157 ::
+return	87.2157
+::Onset of trial expected: [N/A SELF PACED]  recorded: 88.182 ::
+trial	88.1820
+::Onset of return expected: [N/A SELF PACED]  recorded: 90.2146 ::
+return	90.2146
+::Onset of trial expected: [N/A SELF PACED]  recorded: 91.3808 ::
+trial	91.3808
+::Onset of return expected: [N/A SELF PACED]  recorded: 92.9137 ::
+return	92.9137
+::Onset of trial expected: [N/A SELF PACED]  recorded: 93.8135 ::
+trial	93.8135
+::Onset of return expected: [N/A SELF PACED]  recorded: 95.6965 ::
+return	95.6965
+::Onset of trial expected: [N/A SELF PACED]  recorded: 96.8633 ::
+trial	96.8633
+::Onset of return expected: [N/A SELF PACED]  recorded: 98.8969 ::
+return	98.8969
+::Onset of trial expected: [N/A SELF PACED]  recorded: 100.1138 ::
+trial	100.1138
+::Onset of return expected: [N/A SELF PACED]  recorded: 101.7641 ::
+return	101.7641
+::Onset of trial expected: [N/A SELF PACED]  recorded: 102.5141 ::
+trial	102.5141
+::Onset of return expected: [N/A SELF PACED]  recorded: 104.498 ::
+return	104.4980
+::Onset of trial expected: [N/A SELF PACED]  recorded: 105.7813 ::
+trial	105.7813
+::Onset of return expected: [N/A SELF PACED]  recorded: 106.8982 ::
+return	106.8982
+::Onset of trial expected: [N/A SELF PACED]  recorded: 107.615 ::
+trial	107.6150
+::Onset of return expected: [N/A SELF PACED]  recorded: 108.7817 ::
+return	108.7817
+::Onset of trial expected: [N/A SELF PACED]  recorded: 109.5082 ::
+trial	109.5082
+::Onset of return expected: [N/A SELF PACED]  recorded: 111.3156 ::
+return	111.3156
+::Onset of trial expected: [N/A SELF PACED]  recorded: 112.1406 ::
+trial	112.1406
+::Onset of return expected: [N/A SELF PACED]  recorded: 113.0736 ::
+return	113.0736
+::Onset of trial expected: [N/A SELF PACED]  recorded: 113.8401 ::
+trial	113.8401
+::Onset of return expected: [N/A SELF PACED]  recorded: 115.2062 ::
+return	115.2062
+::Onset of trial expected: [N/A SELF PACED]  recorded: 116.2893 ::
+trial	116.2893
+::Onset of return expected: [N/A SELF PACED]  recorded: 118.3551 ::
+return	118.3551
+::Onset of trial expected: [N/A SELF PACED]  recorded: 119.3715 ::
+trial	119.3715
+::Onset of return expected: [N/A SELF PACED]  recorded: 120.8542 ::
+return	120.8542
+::Onset of trial expected: [N/A SELF PACED]  recorded: 121.6873 ::
+trial	121.6873
+::Onset of return expected: [N/A SELF PACED]  recorded: 123.9199 ::
+return	123.9199
+::Onset of trial expected: [N/A SELF PACED]  recorded: 125.3363 ::
+trial	125.3363
+::Onset of return expected: [N/A SELF PACED]  recorded: 126.4857 ::
+return	126.4857
+::Onset of trial expected: [N/A SELF PACED]  recorded: 127.8686 ::
+trial	127.8686
+::Onset of return expected: [N/A SELF PACED]  recorded: 129.0183 ::
+return	129.0183
+::Onset of trial expected: [N/A SELF PACED]  recorded: 129.735 ::
+trial	129.7350
+::Onset of return expected: [N/A SELF PACED]  recorded: 131.4519 ::
+return	131.4519
+::Onset of trial expected: [N/A SELF PACED]  recorded: 132.3021 ::
+trial	132.3021
+::Onset of return expected: [N/A SELF PACED]  recorded: 133.419 ::
+return	133.4190
+::Onset of trial expected: [N/A SELF PACED]  recorded: 134.1524 ::
+trial	134.1524
+::Onset of return expected: [N/A SELF PACED]  recorded: 136.2526 ::
+return	136.2526
+::Onset of trial expected: [N/A SELF PACED]  recorded: 137.1696 ::
+trial	137.1696
+::Onset of return expected: [N/A SELF PACED]  recorded: 139.3865 ::
+return	139.3865
+::Onset of trial expected: [N/A SELF PACED]  recorded: 140.3699 ::
+trial	140.3699
+::Onset of return expected: [N/A SELF PACED]  recorded: 141.8202 ::
+return	141.8202
+::Onset of trial expected: [N/A SELF PACED]  recorded: 142.537 ::
+trial	142.5370
+::Onset of return expected: [N/A SELF PACED]  recorded: 145.1294 ::
+return	145.1294
+::Onset of trial expected: [N/A SELF PACED]  recorded: 146.1125 ::
+trial	146.1125
+::Onset of return expected: [N/A SELF PACED]  recorded: 147.1788 ::
+return	147.1788
+::Onset of trial expected: [N/A SELF PACED]  recorded: 147.9044 ::
+trial	147.9044
+::Onset of return expected: [N/A SELF PACED]  recorded: 148.7449 ::
+return	148.7449
+::Onset of trial expected: [N/A SELF PACED]  recorded: 149.4614 ::
+trial	149.4614
+::Onset of return expected: [N/A SELF PACED]  recorded: 151.5107 ::
+return	151.5107
+::Onset of trial expected: [N/A SELF PACED]  recorded: 152.2771 ::
+trial	152.2771
+::Onset of return expected: [N/A SELF PACED]  recorded: 153.0936 ::
+return	153.0936
+::Onset of trial expected: [N/A SELF PACED]  recorded: 153.8099 ::
+trial	153.8099
+::Onset of return expected: [N/A SELF PACED]  recorded: 156.0925 ::
+return	156.0925
+::Onset of trial expected: [N/A SELF PACED]  recorded: 156.9416 ::
+trial	156.9416
+::Onset of return expected: [N/A SELF PACED]  recorded: 158.0079 ::
+return	158.0079
+::Onset of trial expected: [N/A SELF PACED]  recorded: 158.7244 ::
+trial	158.7244
+::Onset of return expected: [N/A SELF PACED]  recorded: 159.4407 ::
+return	159.4407
+::Onset of trial expected: [N/A SELF PACED]  recorded: 160.1572 ::
+trial	160.1572
+::Onset of return expected: [N/A SELF PACED]  recorded: 161.3234 ::
+return	161.3234
+::Onset of trial expected: [N/A SELF PACED]  recorded: 162.0399 ::
+trial	162.0399
+::Onset of return expected: [N/A SELF PACED]  recorded: 162.7564 ::
+return	162.7564
+::Onset of trial expected: [N/A SELF PACED]  recorded: 164.1397 ::
+trial	164.1397
+::Onset of return expected: [N/A SELF PACED]  recorded: 164.8731 ::
+return	164.8731
+::Onset of trial expected: [N/A SELF PACED]  recorded: 165.5899 ::
+trial	165.5899
+::Onset of return expected: [N/A SELF PACED]  recorded: 166.4406 ::
+return	166.4406
+::Onset of trial expected: [N/A SELF PACED]  recorded: 167.1574 ::
+trial	167.1574
+::Onset of return expected: [N/A SELF PACED]  recorded: 167.8741 ::
+return	167.8741
+::Onset of trial expected: [N/A SELF PACED]  recorded: 168.5909 ::
+trial	168.5909
+::Onset of return expected: [N/A SELF PACED]  recorded: 169.6411 ::
+return	169.6411
+::Onset of trial expected: [N/A SELF PACED]  recorded: 170.4079 ::
+trial	170.4079
+::Onset of return expected: [N/A SELF PACED]  recorded: 171.8248 ::
+return	171.8248
+::Onset of trial expected: [N/A SELF PACED]  recorded: 172.5416 ::
+trial	172.5416
+::Onset of return expected: [N/A SELF PACED]  recorded: 173.275 ::
+return	173.2750
+::Onset of trial expected: [N/A SELF PACED]  recorded: 173.9918 ::
+trial	173.9918
+::Onset of return expected: [N/A SELF PACED]  recorded: 175.9254 ::
+return	175.9254
+::Onset of trial expected: [N/A SELF PACED]  recorded: 176.8422 ::
+trial	176.8422
+::Onset of return expected: [N/A SELF PACED]  recorded: 177.5685 ::
+return	177.5685
+::Onset of rest expected: [N/A SELF PACED]  recorded: 178.8591 ::
+rest	178.8591
+::Onset of cue expected: [N/A SELF PACED]  recorded: 190.8807 ::
+cue	190.8807
+::Onset of trial expected: [N/A SELF PACED]  recorded: 191.4139 ::
+trial	191.4139
+::Onset of return expected: [N/A SELF PACED]  recorded: 192.8794 ::
+return	192.8794
+::Onset of trial expected: [N/A SELF PACED]  recorded: 193.8625 ::
+trial	193.8625
+::Onset of return expected: [N/A SELF PACED]  recorded: 194.579 ::
+return	194.5790
+::Onset of trial expected: [N/A SELF PACED]  recorded: 195.2954 ::
+trial	195.2954
+::Onset of return expected: [N/A SELF PACED]  recorded: 196.8282 ::
+return	196.8282
+::Onset of trial expected: [N/A SELF PACED]  recorded: 197.6782 ::
+trial	197.6782
+::Onset of return expected: [N/A SELF PACED]  recorded: 198.5783 ::
+return	198.5783
+::Onset of trial expected: [N/A SELF PACED]  recorded: 199.2951 ::
+trial	199.2951
+::Onset of return expected: [N/A SELF PACED]  recorded: 200.0118 ::
+return	200.0118
+::Onset of trial expected: [N/A SELF PACED]  recorded: 200.8452 ::
+trial	200.8452
+::Onset of return expected: [N/A SELF PACED]  recorded: 202.2294 ::
+return	202.2294
+::Onset of trial expected: [N/A SELF PACED]  recorded: 203.0462 ::
+trial	203.0462
+::Onset of return expected: [N/A SELF PACED]  recorded: 203.813 ::
+return	203.8130
+::Onset of trial expected: [N/A SELF PACED]  recorded: 204.5298 ::
+trial	204.5298
+::Onset of return expected: [N/A SELF PACED]  recorded: 206.7968 ::
+return	206.7968
+::Onset of trial expected: [N/A SELF PACED]  recorded: 207.647 ::
+trial	207.6470
+::Onset of return expected: [N/A SELF PACED]  recorded: 208.3803 ::
+return	208.3803
+::Onset of trial expected: [N/A SELF PACED]  recorded: 209.0972 ::
+trial	209.0972
+::Onset of return expected: [N/A SELF PACED]  recorded: 210.6306 ::
+return	210.6306
+::Onset of trial expected: [N/A SELF PACED]  recorded: 211.5642 ::
+trial	211.5642
+::Onset of return expected: [N/A SELF PACED]  recorded: 212.481 ::
+return	212.4810
+::Onset of trial expected: [N/A SELF PACED]  recorded: 213.2065 ::
+trial	213.2065
+::Onset of return expected: [N/A SELF PACED]  recorded: 214.4389 ::
+return	214.4389
+::Onset of trial expected: [N/A SELF PACED]  recorded: 215.2053 ::
+trial	215.2053
+::Onset of return expected: [N/A SELF PACED]  recorded: 217.4386 ::
+return	217.4386
+::Onset of trial expected: [N/A SELF PACED]  recorded: 218.4875 ::
+trial	218.4875
+::Onset of return expected: [N/A SELF PACED]  recorded: 219.3539 ::
+return	219.3539
+::Onset of trial expected: [N/A SELF PACED]  recorded: 220.0703 ::
+trial	220.0703
+::Onset of return expected: [N/A SELF PACED]  recorded: 221.4032 ::
+return	221.4032
+::Onset of trial expected: [N/A SELF PACED]  recorded: 222.1197 ::
+trial	222.1197
+::Onset of return expected: [N/A SELF PACED]  recorded: 222.9859 ::
+return	222.9859
+::Onset of rest expected: [N/A SELF PACED]  recorded: 223.8197 ::
+rest	223.8197
+::Onset of cue expected: [N/A SELF PACED]  recorded: 235.8512 ::
+cue	235.8512
+::Onset of trial expected: [N/A SELF PACED]  recorded: 236.3679 ::
+trial	236.3679
+::Onset of return expected: [N/A SELF PACED]  recorded: 239.9186 ::
+return	239.9186
+::Onset of trial expected: [N/A SELF PACED]  recorded: 240.6354 ::
+trial	240.6354
+::Onset of return expected: [N/A SELF PACED]  recorded: 241.6188 ::
+return	241.6188
+::Onset of trial expected: [N/A SELF PACED]  recorded: 242.3355 ::
+trial	242.3355
+::Onset of return expected: [N/A SELF PACED]  recorded: 243.0632 ::
+return	243.0632
+::Onset of trial expected: [N/A SELF PACED]  recorded: 243.7796 ::
+trial	243.7796
+::Onset of return expected: [N/A SELF PACED]  recorded: 245.7528 ::
+return	245.7528
+::Onset of trial expected: [N/A SELF PACED]  recorded: 246.7454 ::
+trial	246.7454
+::Onset of return expected: [N/A SELF PACED]  recorded: 247.7697 ::
+return	247.7697
+::Onset of trial expected: [N/A SELF PACED]  recorded: 248.5198 ::
+trial	248.5198
+::Onset of return expected: [N/A SELF PACED]  recorded: 249.3534 ::
+return	249.3534
+::Onset of trial expected: [N/A SELF PACED]  recorded: 250.0776 ::
+trial	250.0776
+::Onset of return expected: [N/A SELF PACED]  recorded: 252.0601 ::
+return	252.0601
+::Onset of trial expected: [N/A SELF PACED]  recorded: 252.9099 ::
+trial	252.9099
+::Onset of return expected: [N/A SELF PACED]  recorded: 253.6596 ::
+return	253.6596
+::Onset of trial expected: [N/A SELF PACED]  recorded: 254.376 ::
+trial	254.3760
+::Onset of return expected: [N/A SELF PACED]  recorded: 255.1258 ::
+return	255.1258
+::Onset of trial expected: [N/A SELF PACED]  recorded: 255.8422 ::
+trial	255.8422
+::Onset of return expected: [N/A SELF PACED]  recorded: 257.3751 ::
+return	257.3751
+::Onset of trial expected: [N/A SELF PACED]  recorded: 258.1581 ::
+trial	258.1581
+::Onset of return expected: [N/A SELF PACED]  recorded: 258.8746 ::
+return	258.8746
+::Onset of trial expected: [N/A SELF PACED]  recorded: 259.591 ::
+trial	259.5910
+::Onset of return expected: [N/A SELF PACED]  recorded: 261.357 ::
+return	261.3570
+::Onset of trial expected: [N/A SELF PACED]  recorded: 262.0735 ::
+trial	262.0735
+::Onset of return expected: [N/A SELF PACED]  recorded: 263.3397 ::
+return	263.3397
+::Onset of trial expected: [N/A SELF PACED]  recorded: 264.1894 ::
+trial	264.1894
+::Onset of return expected: [N/A SELF PACED]  recorded: 264.9891 ::
+return	264.9891
+::Onset of trial expected: [N/A SELF PACED]  recorded: 265.7058 ::
+trial	265.7058
+::Onset of return expected: [N/A SELF PACED]  recorded: 267.106 ::
+return	267.1060
+::Onset of trial expected: [N/A SELF PACED]  recorded: 268.0228 ::
+trial	268.0228
+::Onset of return expected: [N/A SELF PACED]  recorded: 268.7397 ::
+return	268.7397
+::Onset of trial expected: [N/A SELF PACED]  recorded: 269.4563 ::
+trial	269.4563
+::Onset of return expected: [N/A SELF PACED]  recorded: 270.1898 ::
+return	270.1898
+::Onset of trial expected: [N/A SELF PACED]  recorded: 270.9065 ::
+trial	270.9065
+::Onset of return expected: [N/A SELF PACED]  recorded: 272.2735 ::
+return	272.2735
+::Onset of trial expected: [N/A SELF PACED]  recorded: 273.1403 ::
+trial	273.1403
+::Onset of return expected: [N/A SELF PACED]  recorded: 275.3573 ::
+return	275.3573
+::Onset of trial expected: [N/A SELF PACED]  recorded: 276.0741 ::
+trial	276.0741
+::Onset of return expected: [N/A SELF PACED]  recorded: 277.0076 ::
+return	277.0076
+::Onset of trial expected: [N/A SELF PACED]  recorded: 277.8576 ::
+trial	277.8576
+::Onset of return expected: [N/A SELF PACED]  recorded: 278.6076 ::
+return	278.6076
+::Onset of trial expected: [N/A SELF PACED]  recorded: 279.3344 ::
+trial	279.3344
+::Onset of return expected: [N/A SELF PACED]  recorded: 280.058 ::
+return	280.0580
+::Onset of trial expected: [N/A SELF PACED]  recorded: 280.7747 ::
+trial	280.7747
+::Onset of return expected: [N/A SELF PACED]  recorded: 281.9001 ::
+return	281.9001
+::Onset of trial expected: [N/A SELF PACED]  recorded: 282.6166 ::
+trial	282.6166
+::Onset of return expected: [N/A SELF PACED]  recorded: 283.3329 ::
+return	283.3329
+::Onset of trial expected: [N/A SELF PACED]  recorded: 284.0495 ::
+trial	284.0495
+::Onset of return expected: [N/A SELF PACED]  recorded: 284.7658 ::
+return	284.7658
+::Onset of trial expected: [N/A SELF PACED]  recorded: 285.4921 ::
+trial	285.4921
+::Onset of return expected: [N/A SELF PACED]  recorded: 286.3486 ::
+return	286.3486
+::Onset of trial expected: [N/A SELF PACED]  recorded: 287.1983 ::
+trial	287.1983
+::Onset of return expected: [N/A SELF PACED]  recorded: 287.9147 ::
+return	287.9147
+::Onset of trial expected: [N/A SELF PACED]  recorded: 288.6426 ::
+trial	288.6426
+::Onset of return expected: [N/A SELF PACED]  recorded: 290.0474 ::
+return	290.0474
+::Onset of trial expected: [N/A SELF PACED]  recorded: 290.8471 ::
+trial	290.8471
+::Onset of return expected: [N/A SELF PACED]  recorded: 291.6801 ::
+return	291.6801
+::Onset of trial expected: [N/A SELF PACED]  recorded: 292.3965 ::
+trial	292.3965
+::Onset of return expected: [N/A SELF PACED]  recorded: 293.1131 ::
+return	293.1131
+::Onset of trial expected: [N/A SELF PACED]  recorded: 293.8294 ::
+trial	293.8294
+::Onset of return expected: [N/A SELF PACED]  recorded: 294.7624 ::
+return	294.7624
+::Onset of trial expected: [N/A SELF PACED]  recorded: 295.4956 ::
+trial	295.4956
+::Onset of return expected: [N/A SELF PACED]  recorded: 296.2119 ::
+return	296.2119
+::Onset of trial expected: [N/A SELF PACED]  recorded: 296.9284 ::
+trial	296.9284
+::Onset of return expected: [N/A SELF PACED]  recorded: 297.6448 ::
+return	297.6448
+::Onset of trial expected: [N/A SELF PACED]  recorded: 298.2947 ::
+trial	298.2947
+::Onset of return expected: [N/A SELF PACED]  recorded: 299.0444 ::
+return	299.0444
+::Onset of trial expected: [N/A SELF PACED]  recorded: 299.761 ::
+trial	299.7610
+::Onset of return expected: [N/A SELF PACED]  recorded: 300.4778 ::
+return	300.4778
+::Onset of trial expected: [N/A SELF PACED]  recorded: 301.1946 ::
+trial	301.1946
+::Onset of return expected: [N/A SELF PACED]  recorded: 302.0613 ::
+return	302.0613
+::Onset of trial expected: [N/A SELF PACED]  recorded: 302.9282 ::
+trial	302.9282
+::Onset of return expected: [N/A SELF PACED]  recorded: 303.7283 ::
+return	303.7283
+::Onset of trial expected: [N/A SELF PACED]  recorded: 304.4452 ::
+trial	304.4452
+::Onset of return expected: [N/A SELF PACED]  recorded: 305.1619 ::
+return	305.1619
+::Onset of trial expected: [N/A SELF PACED]  recorded: 305.8452 ::
+trial	305.8452
+::Onset of return expected: [N/A SELF PACED]  recorded: 307.0288 ::
+return	307.0288
+::Onset of trial expected: [N/A SELF PACED]  recorded: 307.7622 ::
+trial	307.7622
+::Onset of return expected: [N/A SELF PACED]  recorded: 308.479 ::
+return	308.4790
+::Onset of trial expected: [N/A SELF PACED]  recorded: 309.5793 ::
+trial	309.5793
+::Onset of return expected: [N/A SELF PACED]  recorded: 310.296 ::
+return	310.2960
+::Onset of trial expected: [N/A SELF PACED]  recorded: 311.0236 ::
+trial	311.0236
+::Onset of return expected: [N/A SELF PACED]  recorded: 311.7795 ::
+return	311.7795
+::Onset of trial expected: [N/A SELF PACED]  recorded: 312.4962 ::
+trial	312.4962
+::Onset of return expected: [N/A SELF PACED]  recorded: 313.2133 ::
+return	313.2133
+::Onset of trial expected: [N/A SELF PACED]  recorded: 313.9299 ::
+trial	313.9299
+::Onset of return expected: [N/A SELF PACED]  recorded: 315.2801 ::
+return	315.2801
+::Onset of trial expected: [N/A SELF PACED]  recorded: 316.0135 ::
+trial	316.0135
+::Onset of return expected: [N/A SELF PACED]  recorded: 317.4048 ::
+return	317.4048
+::Onset of trial expected: [N/A SELF PACED]  recorded: 318.1212 ::
+trial	318.1212
+::Onset of return expected: [N/A SELF PACED]  recorded: 318.8376 ::
+return	318.8376
+::Onset of trial expected: [N/A SELF PACED]  recorded: 319.5542 ::
+trial	319.5542
+::Onset of return expected: [N/A SELF PACED]  recorded: 321.3868 ::
+return	321.3868
+::Onset of trial expected: [N/A SELF PACED]  recorded: 322.1033 ::
+trial	322.1033
+::Onset of return expected: [N/A SELF PACED]  recorded: 322.8313 ::
+return	322.8313
+::Onset of rest expected: [N/A SELF PACED]  recorded: 323.5481 ::
+rest	323.5481
+::Onset of cue expected: [N/A SELF PACED]  recorded: 335.5665 ::
+cue	335.5665
+::Onset of trial expected: [N/A SELF PACED]  recorded: 336.0833 ::
+trial	336.0833
+::Onset of return expected: [N/A SELF PACED]  recorded: 336.9668 ::
+return	336.9668
+::Onset of trial expected: [N/A SELF PACED]  recorded: 337.6002 ::
+trial	337.6002
+::Onset of return expected: [N/A SELF PACED]  recorded: 338.7837 ::
+return	338.7837
+::Onset of trial expected: [N/A SELF PACED]  recorded: 339.5672 ::
+trial	339.5672
+::Onset of return expected: [N/A SELF PACED]  recorded: 340.284 ::
+return	340.2840
+::Onset of trial expected: [N/A SELF PACED]  recorded: 341.0008 ::
+trial	341.0008
+::Onset of return expected: [N/A SELF PACED]  recorded: 341.9509 ::
+return	341.9509
+::Onset of trial expected: [N/A SELF PACED]  recorded: 342.7342 ::
+trial	342.7342
+::Onset of return expected: [N/A SELF PACED]  recorded: 343.7678 ::
+return	343.7678
+::Onset of trial expected: [N/A SELF PACED]  recorded: 344.4846 ::
+trial	344.4846
+::Onset of return expected: [N/A SELF PACED]  recorded: 345.2121 ::
+return	345.2121
+::Onset of trial expected: [N/A SELF PACED]  recorded: 345.9285 ::
+trial	345.9285
+::Onset of return expected: [N/A SELF PACED]  recorded: 346.645 ::
+return	346.6450
+::Onset of trial expected: [N/A SELF PACED]  recorded: 347.3615 ::
+trial	347.3615
+::Onset of return expected: [N/A SELF PACED]  recorded: 348.0852 ::
+return	348.0852
+::Onset of trial expected: [N/A SELF PACED]  recorded: 348.7185 ::
+trial	348.7185
+::Onset of return expected: [N/A SELF PACED]  recorded: 349.4353 ::
+return	349.4353
+::Onset of trial expected: [N/A SELF PACED]  recorded: 350.1521 ::
+trial	350.1521
+::Onset of return expected: [N/A SELF PACED]  recorded: 351.2435 ::
+return	351.2435
+::Onset of trial expected: [N/A SELF PACED]  recorded: 351.9598 ::
+trial	351.9598
+::Onset of return expected: [N/A SELF PACED]  recorded: 353.2427 ::
+return	353.2427
+::Onset of trial expected: [N/A SELF PACED]  recorded: 353.9694 ::
+trial	353.9694
+::Onset of return expected: [N/A SELF PACED]  recorded: 354.6862 ::
+return	354.6862
+::Onset of trial expected: [N/A SELF PACED]  recorded: 355.4028 ::
+trial	355.4028
+::Onset of return expected: [N/A SELF PACED]  recorded: 356.375 ::
+return	356.3750
+::Onset of trial expected: [N/A SELF PACED]  recorded: 357.0914 ::
+trial	357.0914
+::Onset of return expected: [N/A SELF PACED]  recorded: 357.8079 ::
+return	357.8079
+::Onset of trial expected: [N/A SELF PACED]  recorded: 358.5242 ::
+trial	358.5242
+::Onset of return expected: [N/A SELF PACED]  recorded: 359.2407 ::
+return	359.2407
+::Onset of trial expected: [N/A SELF PACED]  recorded: 359.9572 ::
+trial	359.9572
+::Onset of return expected: [N/A SELF PACED]  recorded: 361.2562 ::
+return	361.2562
+::Onset of rest expected: [N/A SELF PACED]  recorded: 362.0726 ::
+rest	362.0726
+::Onset of cue expected: [N/A SELF PACED]  recorded: 374.1057 ::
+cue	374.1057
+::Onset of trial expected: [N/A SELF PACED]  recorded: 374.6225 ::
+trial	374.6225
+::Onset of return expected: [N/A SELF PACED]  recorded: 375.6061 ::
+return	375.6061
+::Onset of trial expected: [N/A SELF PACED]  recorded: 376.3228 ::
+trial	376.3228
+::Onset of return expected: [N/A SELF PACED]  recorded: 377.1729 ::
+return	377.1729
+::Onset of trial expected: [N/A SELF PACED]  recorded: 377.9564 ::
+trial	377.9564
+::Onset of return expected: [N/A SELF PACED]  recorded: 379.5733 ::
+return	379.5733
+::Onset of trial expected: [N/A SELF PACED]  recorded: 380.29 ::
+trial	380.2900
+::Onset of return expected: [N/A SELF PACED]  recorded: 381.5736 ::
+return	381.5736
+::Onset of trial expected: [N/A SELF PACED]  recorded: 382.3571 ::
+trial	382.3571
+::Onset of return expected: [N/A SELF PACED]  recorded: 383.5738 ::
+return	383.5738
+::Onset of trial expected: [N/A SELF PACED]  recorded: 384.299 ::
+trial	384.2990
+::Onset of return expected: [N/A SELF PACED]  recorded: 385.0154 ::
+return	385.0154
+::Onset of trial expected: [N/A SELF PACED]  recorded: 385.7318 ::
+trial	385.7318
+::Onset of return expected: [N/A SELF PACED]  recorded: 386.5144 ::
+return	386.5144
+::Onset of trial expected: [N/A SELF PACED]  recorded: 387.2307 ::
+trial	387.2307
+::Onset of return expected: [N/A SELF PACED]  recorded: 387.9572 ::
+return	387.9572
+::Onset of trial expected: [N/A SELF PACED]  recorded: 388.6741 ::
+trial	388.6741
+::Onset of return expected: [N/A SELF PACED]  recorded: 389.3915 ::
+return	389.3915
+::Onset of trial expected: [N/A SELF PACED]  recorded: 390.0304 ::
+trial	390.0304
+::Onset of return expected: [N/A SELF PACED]  recorded: 390.7468 ::
+return	390.7468
+::Onset of trial expected: [N/A SELF PACED]  recorded: 391.3911 ::
+trial	391.3911
+::Onset of return expected: [N/A SELF PACED]  recorded: 392.1458 ::
+return	392.1458
+::Onset of trial expected: [N/A SELF PACED]  recorded: 392.8621 ::
+trial	392.8621
+::Onset of return expected: [N/A SELF PACED]  recorded: 393.7786 ::
+return	393.7786
+::Onset of trial expected: [N/A SELF PACED]  recorded: 394.6116 ::
+trial	394.6116
+::Onset of return expected: [N/A SELF PACED]  recorded: 395.478 ::
+return	395.4780
+::Onset of trial expected: [N/A SELF PACED]  recorded: 396.1944 ::
+trial	396.1944
+::Onset of return expected: [N/A SELF PACED]  recorded: 396.9275 ::
+return	396.9275
+::Onset of trial expected: [N/A SELF PACED]  recorded: 397.644 ::
+trial	397.6440
+::Onset of return expected: [N/A SELF PACED]  recorded: 399.6599 ::
+return	399.6599
+::Onset of trial expected: [N/A SELF PACED]  recorded: 400.3763 ::
+trial	400.3763
+::Onset of return expected: [N/A SELF PACED]  recorded: 401.0928 ::
+return	401.0928
+::Onset of trial expected: [N/A SELF PACED]  recorded: 402.2594 ::
+trial	402.2594
+::Onset of return expected: [N/A SELF PACED]  recorded: 402.9763 ::
+return	402.9763
+::Onset of trial expected: [N/A SELF PACED]  recorded: 403.6936 ::
+trial	403.6936
+::Onset of return expected: [N/A SELF PACED]  recorded: 404.4437 ::
+return	404.4437
+::Onset of trial expected: [N/A SELF PACED]  recorded: 405.1604 ::
+trial	405.1604
+::Onset of return expected: [N/A SELF PACED]  recorded: 405.8773 ::
+return	405.8773
+::Onset of trial expected: [N/A SELF PACED]  recorded: 406.5941 ::
+trial	406.5941
+::Onset of return expected: [N/A SELF PACED]  recorded: 407.9942 ::
+return	407.9942
+::Onset of trial expected: [N/A SELF PACED]  recorded: 408.8444 ::
+trial	408.8444
+::Onset of return expected: [N/A SELF PACED]  recorded: 409.7612 ::
+return	409.7612
+::Onset of trial expected: [N/A SELF PACED]  recorded: 410.4947 ::
+trial	410.4947
+::Onset of return expected: [N/A SELF PACED]  recorded: 411.2114 ::
+return	411.2114
+::Onset of trial expected: [N/A SELF PACED]  recorded: 411.9282 ::
+trial	411.9282
+::Onset of return expected: [N/A SELF PACED]  recorded: 412.9783 ::
+return	412.9783
+::Onset of trial expected: [N/A SELF PACED]  recorded: 413.6952 ::
+trial	413.6952
+::Onset of return expected: [N/A SELF PACED]  recorded: 414.4286 ::
+return	414.4286
+::Onset of trial expected: [N/A SELF PACED]  recorded: 415.1552 ::
+trial	415.1552
+::Onset of return expected: [N/A SELF PACED]  recorded: 415.8716 ::
+return	415.8716
+::Onset of trial expected: [N/A SELF PACED]  recorded: 416.588 ::
+trial	416.5880
+::Onset of return expected: [N/A SELF PACED]  recorded: 417.3457 ::
+return	417.3457
+::Onset of trial expected: [N/A SELF PACED]  recorded: 418.0625 ::
+trial	418.0625
+::Onset of return expected: [N/A SELF PACED]  recorded: 419.6372 ::
+return	419.6372
+::Onset of trial expected: [N/A SELF PACED]  recorded: 420.3534 ::
+trial	420.3534
+::Onset of return expected: [N/A SELF PACED]  recorded: 422.1528 ::
+return	422.1528
+::Onset of trial expected: [N/A SELF PACED]  recorded: 423.0526 ::
+trial	423.0526
+::Onset of return expected: [N/A SELF PACED]  recorded: 423.8856 ::
+return	423.8856
+::Onset of trial expected: [N/A SELF PACED]  recorded: 424.602 ::
+trial	424.6020
+::Onset of return expected: [N/A SELF PACED]  recorded: 425.3351 ::
+return	425.3351
+::Onset of trial expected: [N/A SELF PACED]  recorded: 426.0516 ::
+trial	426.0516
+::Onset of return expected: [N/A SELF PACED]  recorded: 427.2511 ::
+return	427.2511
+::Onset of trial expected: [N/A SELF PACED]  recorded: 428.0342 ::
+trial	428.0342
+::Onset of return expected: [N/A SELF PACED]  recorded: 429.6836 ::
+return	429.6836
+::Onset of trial expected: [N/A SELF PACED]  recorded: 430.8 ::
+trial	430.8000
+::Onset of return expected: [N/A SELF PACED]  recorded: 431.5332 ::
+return	431.5332
+::Onset of trial expected: [N/A SELF PACED]  recorded: 432.2495 ::
+trial	432.2495
+::Onset of return expected: [N/A SELF PACED]  recorded: 433.2492 ::
+return	433.2492
+::Onset of trial expected: [N/A SELF PACED]  recorded: 433.9655 ::
+trial	433.9655
+::Onset of return expected: [N/A SELF PACED]  recorded: 434.6986 ::
+return	434.6986
+::Onset of trial expected: [N/A SELF PACED]  recorded: 435.4151 ::
+trial	435.4151
+::Onset of return expected: [N/A SELF PACED]  recorded: 436.582 ::
+return	436.5820
+::Onset of trial expected: [N/A SELF PACED]  recorded: 437.3154 ::
+trial	437.3154
+::Onset of return expected: [N/A SELF PACED]  recorded: 438.2656 ::
+return	438.2656
+::Onset of trial expected: [N/A SELF PACED]  recorded: 438.9824 ::
+trial	438.9824
+::Onset of return expected: [N/A SELF PACED]  recorded: 439.6992 ::
+return	439.6992
+::Onset of trial expected: [N/A SELF PACED]  recorded: 440.4158 ::
+trial	440.4158
+::Onset of return expected: [N/A SELF PACED]  recorded: 442.3328 ::
+return	442.3328
+::Onset of trial expected: [N/A SELF PACED]  recorded: 443.0496 ::
+trial	443.0496
+::Onset of return expected: [N/A SELF PACED]  recorded: 443.7664 ::
+return	443.7664
+::Onset of trial expected: [N/A SELF PACED]  recorded: 444.4954 ::
+trial	444.4954
+::Onset of return expected: [N/A SELF PACED]  recorded: 445.2118 ::
+return	445.2118
+::Onset of trial expected: [N/A SELF PACED]  recorded: 445.9282 ::
+trial	445.9282
+::Onset of return expected: [N/A SELF PACED]  recorded: 446.6502 ::
+return	446.6502
+::Onset of trial expected: [N/A SELF PACED]  recorded: 447.3669 ::
+trial	447.3669
+::Onset of return expected: [N/A SELF PACED]  recorded: 448.0838 ::
+return	448.0838
+::Onset of trial expected: [N/A SELF PACED]  recorded: 448.8005 ::
+trial	448.8005
+::Onset of return expected: [N/A SELF PACED]  recorded: 450.034 ::
+return	450.0340
+::Onset of trial expected: [N/A SELF PACED]  recorded: 450.7599 ::
+trial	450.7599
+::Onset of return expected: [N/A SELF PACED]  recorded: 451.4763 ::
+return	451.4763
+::Onset of trial expected: [N/A SELF PACED]  recorded: 452.1928 ::
+trial	452.1928
+::Onset of return expected: [N/A SELF PACED]  recorded: 452.9093 ::
+return	452.9093
+::Onset of trial expected: [N/A SELF PACED]  recorded: 453.6256 ::
+trial	453.6256
+::Onset of return expected: [N/A SELF PACED]  recorded: 454.3513 ::
+return	454.3513
+::Onset of trial expected: [N/A SELF PACED]  recorded: 455.0917 ::
+trial	455.0917
+::Onset of return expected: [N/A SELF PACED]  recorded: 455.8082 ::
+return	455.8082
+::Onset of rest expected: [N/A SELF PACED]  recorded: 456.5247 ::
+rest	456.5247
+::Onset of cue expected: [N/A SELF PACED]  recorded: 468.5539 ::
+cue	468.5539
+::Onset of trial expected: [N/A SELF PACED]  recorded: 469.0871 ::
+trial	469.0871
+::Onset of return expected: [N/A SELF PACED]  recorded: 470.0372 ::
+return	470.0372
+::Onset of trial expected: [N/A SELF PACED]  recorded: 470.7539 ::
+trial	470.7539
+::Onset of return expected: [N/A SELF PACED]  recorded: 472.1707 ::
+return	472.1707
+::Onset of trial expected: [N/A SELF PACED]  recorded: 472.8875 ::
+trial	472.8875
+::Onset of return expected: [N/A SELF PACED]  recorded: 474.2213 ::
+return	474.2213
+::Onset of trial expected: [N/A SELF PACED]  recorded: 474.9878 ::
+trial	474.9878
+::Onset of return expected: [N/A SELF PACED]  recorded: 475.8214 ::
+return	475.8214
+::Onset of trial expected: [N/A SELF PACED]  recorded: 476.5381 ::
+trial	476.5381
+::Onset of return expected: [N/A SELF PACED]  recorded: 477.2549 ::
+return	477.2549
+::Onset of trial expected: [N/A SELF PACED]  recorded: 477.9883 ::
+trial	477.9883
+::Onset of return expected: [N/A SELF PACED]  recorded: 478.7005 ::
+return	478.7005
+::Onset of trial expected: [N/A SELF PACED]  recorded: 479.417 ::
+trial	479.4170
+::Onset of return expected: [N/A SELF PACED]  recorded: 480.9721 ::
+return	480.9721
+::Onset of trial expected: [N/A SELF PACED]  recorded: 481.7222 ::
+trial	481.7222
+::Onset of return expected: [N/A SELF PACED]  recorded: 482.6723 ::
+return	482.6723
+::Onset of trial expected: [N/A SELF PACED]  recorded: 483.3989 ::
+trial	483.3989
+::Onset of return expected: [N/A SELF PACED]  recorded: 484.1153 ::
+return	484.1153
+::Onset of trial expected: [N/A SELF PACED]  recorded: 484.8485 ::
+trial	484.8485
+::Onset of return expected: [N/A SELF PACED]  recorded: 485.5729 ::
+return	485.5729
+::Onset of trial expected: [N/A SELF PACED]  recorded: 486.2896 ::
+trial	486.2896
+::Onset of return expected: [N/A SELF PACED]  recorded: 487.5231 ::
+return	487.5231
+::Onset of trial expected: [N/A SELF PACED]  recorded: 488.2474 ::
+trial	488.2474
+::Onset of return expected: [N/A SELF PACED]  recorded: 488.9637 ::
+return	488.9637
+::Onset of trial expected: [N/A SELF PACED]  recorded: 489.7634 ::
+trial	489.7634
+::Onset of return expected: [N/A SELF PACED]  recorded: 490.5299 ::
+return	490.5299
+::Onset of trial expected: [N/A SELF PACED]  recorded: 491.3129 ::
+trial	491.3129
+::Onset of return expected: [N/A SELF PACED]  recorded: 492.0293 ::
+return	492.0293
+::Onset of trial expected: [N/A SELF PACED]  recorded: 492.7573 ::
+trial	492.7573
+::Onset of return expected: [N/A SELF PACED]  recorded: 493.474 ::
+return	493.4740
+::Onset of trial expected: [N/A SELF PACED]  recorded: 494.212 ::
+trial	494.2120
+::Onset of return expected: [N/A SELF PACED]  recorded: 495.1782 ::
+return	495.1782
+::Onset of rest expected: [N/A SELF PACED]  recorded: 495.8948 ::
+rest	495.8948
+::Onset of cue expected: [N/A SELF PACED]  recorded: 507.9262 ::
+cue	507.9262
+::Onset of trial expected: [N/A SELF PACED]  recorded: 508.443 ::
+trial	508.4430
+::Onset of return expected: [N/A SELF PACED]  recorded: 508.5764 ::
+return	508.5764
+::Onset of trial expected: [N/A SELF PACED]  recorded: 509.5599 ::
+trial	509.5599
+::Onset of return expected: [N/A SELF PACED]  recorded: 510.5766 ::
+return	510.5766
+::Onset of trial expected: [N/A SELF PACED]  recorded: 511.2933 ::
+trial	511.2933
+::Onset of return expected: [N/A SELF PACED]  recorded: 512.0102 ::
+return	512.0102
+::Onset of trial expected: [N/A SELF PACED]  recorded: 512.7392 ::
+trial	512.7392
+::Onset of return expected: [N/A SELF PACED]  recorded: 514.4773 ::
+return	514.4773
+::Onset of trial expected: [N/A SELF PACED]  recorded: 515.194 ::
+trial	515.1940
+::Onset of return expected: [N/A SELF PACED]  recorded: 515.9275 ::
+return	515.9275
+::Onset of trial expected: [N/A SELF PACED]  recorded: 516.6943 ::
+trial	516.6943
+::Onset of return expected: [N/A SELF PACED]  recorded: 517.411 ::
+return	517.4110
+::Onset of trial expected: [N/A SELF PACED]  recorded: 518.1373 ::
+trial	518.1373
+::Onset of return expected: [N/A SELF PACED]  recorded: 519.5202 ::
+return	519.5202
+::Onset of trial expected: [N/A SELF PACED]  recorded: 520.2448 ::
+trial	520.2448
+::Onset of return expected: [N/A SELF PACED]  recorded: 520.9615 ::
+return	520.9615
+::Onset of trial expected: [N/A SELF PACED]  recorded: 521.6784 ::
+trial	521.6784
+::Onset of return expected: [N/A SELF PACED]  recorded: 522.3951 ::
+return	522.3951
+::Onset of trial expected: [N/A SELF PACED]  recorded: 523.0356 ::
+trial	523.0356
+::Onset of return expected: [N/A SELF PACED]  recorded: 523.902 ::
+return	523.9020
+::Onset of trial expected: [N/A SELF PACED]  recorded: 524.6289 ::
+trial	524.6289
+::Onset of return expected: [N/A SELF PACED]  recorded: 525.3455 ::
+return	525.3455
+::Onset of trial expected: [N/A SELF PACED]  recorded: 526.0626 ::
+trial	526.0626
+::Onset of return expected: [N/A SELF PACED]  recorded: 526.7792 ::
+return	526.7792
+::Onset of trial expected: [N/A SELF PACED]  recorded: 527.5008 ::
+trial	527.5008
+::Onset of return expected: [N/A SELF PACED]  recorded: 528.2172 ::
+return	528.2172
+::Onset of trial expected: [N/A SELF PACED]  recorded: 528.9336 ::
+trial	528.9336
+::Onset of return expected: [N/A SELF PACED]  recorded: 529.6502 ::
+return	529.6502
+::Onset of trial expected: [N/A SELF PACED]  recorded: 530.3664 ::
+trial	530.3664
+::Onset of return expected: [N/A SELF PACED]  recorded: 531.1162 ::
+return	531.1162
+::Onset of trial expected: [N/A SELF PACED]  recorded: 531.8327 ::
+trial	531.8327
+::Onset of return expected: [N/A SELF PACED]  recorded: 532.549 ::
+return	532.5490
+::Onset of trial expected: [N/A SELF PACED]  recorded: 533.2655 ::
+trial	533.2655
+::Onset of return expected: [N/A SELF PACED]  recorded: 533.9987 ::
+return	533.9987
+::Onset of trial expected: [N/A SELF PACED]  recorded: 534.715 ::
+trial	534.7150
+::Onset of return expected: [N/A SELF PACED]  recorded: 535.4981 ::
+return	535.4981
+::Onset of trial expected: [N/A SELF PACED]  recorded: 536.2146 ::
+trial	536.2146
+::Onset of return expected: [N/A SELF PACED]  recorded: 536.931 ::
+return	536.9310
+::Onset of trial expected: [N/A SELF PACED]  recorded: 538.1142 ::
+trial	538.1142
+::Onset of return expected: [N/A SELF PACED]  recorded: 539.031 ::
+return	539.0310
+::Onset of trial expected: [N/A SELF PACED]  recorded: 539.7478 ::
+trial	539.7478
+::Onset of return expected: [N/A SELF PACED]  recorded: 540.4646 ::
+return	540.4646
+::Onset of trial expected: [N/A SELF PACED]  recorded: 541.1813 ::
+trial	541.1813
+::Onset of return expected: [N/A SELF PACED]  recorded: 541.9814 ::
+return	541.9814
+::Onset of trial expected: [N/A SELF PACED]  recorded: 542.6982 ::
+trial	542.6982
+::Onset of return expected: [N/A SELF PACED]  recorded: 544.1319 ::
+return	544.1319
+::Onset of trial expected: [N/A SELF PACED]  recorded: 544.8486 ::
+trial	544.8486
+::Onset of return expected: [N/A SELF PACED]  recorded: 545.5655 ::
+return	545.5655
+::Onset of trial expected: [N/A SELF PACED]  recorded: 546.2988 ::
+trial	546.2988
+::Onset of return expected: [N/A SELF PACED]  recorded: 547.0157 ::
+return	547.0157
+::Onset of trial expected: [N/A SELF PACED]  recorded: 547.649 ::
+trial	547.6490
+::Onset of return expected: [N/A SELF PACED]  recorded: 548.8826 ::
+return	548.8826
+::Onset of trial expected: [N/A SELF PACED]  recorded: 549.9494 ::
+trial	549.9494
+::Onset of return expected: [N/A SELF PACED]  recorded: 551.1662 ::
+return	551.1662
+::Onset of trial expected: [N/A SELF PACED]  recorded: 551.883 ::
+trial	551.8830
+::Onset of return expected: [N/A SELF PACED]  recorded: 552.6091 ::
+return	552.6091
+::Onset of trial expected: [N/A SELF PACED]  recorded: 553.3255 ::
+trial	553.3255
+::Onset of return expected: [N/A SELF PACED]  recorded: 554.0419 ::
+return	554.0419
+::Onset of trial expected: [N/A SELF PACED]  recorded: 554.7582 ::
+trial	554.7582
+::Onset of return expected: [N/A SELF PACED]  recorded: 555.4836 ::
+return	555.4836
+::Onset of trial expected: [N/A SELF PACED]  recorded: 556.2 ::
+trial	556.2000
+::Onset of return expected: [N/A SELF PACED]  recorded: 557.4908 ::
+return	557.4908
+::Onset of trial expected: [N/A SELF PACED]  recorded: 558.207 ::
+trial	558.2070
+::Onset of return expected: [N/A SELF PACED]  recorded: 558.957 ::
+return	558.9570
+::Onset of trial expected: [N/A SELF PACED]  recorded: 559.6726 ::
+trial	559.6726
+::Onset of return expected: [N/A SELF PACED]  recorded: 560.4004 ::
+return	560.4004
+::Onset of trial expected: [N/A SELF PACED]  recorded: 561.0339 ::
+trial	561.0339
+::Onset of return expected: [N/A SELF PACED]  recorded: 561.7726 ::
+return	561.7726
+::Onset of trial expected: [N/A SELF PACED]  recorded: 562.489 ::
+trial	562.4890
+::Onset of return expected: [N/A SELF PACED]  recorded: 563.2053 ::
+return	563.2053
+::Onset of trial expected: [N/A SELF PACED]  recorded: 563.9219 ::
+trial	563.9219
+::Onset of return expected: [N/A SELF PACED]  recorded: 564.7549 ::
+return	564.7549
+::Onset of trial expected: [N/A SELF PACED]  recorded: 565.4707 ::
+trial	565.4707
+::Onset of return expected: [N/A SELF PACED]  recorded: 566.537 ::
+return	566.5370
+::Onset of trial expected: [N/A SELF PACED]  recorded: 567.1701 ::
+trial	567.1701
+::Onset of return expected: [N/A SELF PACED]  recorded: 567.8866 ::
+return	567.8866
+::Onset of trial expected: [N/A SELF PACED]  recorded: 568.6196 ::
+trial	568.6196
+::Onset of return expected: [N/A SELF PACED]  recorded: 569.3367 ::
+return	569.3367
+::Onset of trial expected: [N/A SELF PACED]  recorded: 570.0531 ::
+trial	570.0531
+::Onset of return expected: [N/A SELF PACED]  recorded: 570.7696 ::
+return	570.7696
+::Onset of trial expected: [N/A SELF PACED]  recorded: 571.4854 ::
+trial	571.4854
+::Onset of return expected: [N/A SELF PACED]  recorded: 572.2028 ::
+return	572.2028
+::Onset of trial expected: [N/A SELF PACED]  recorded: 572.9195 ::
+trial	572.9195
+::Onset of return expected: [N/A SELF PACED]  recorded: 573.6363 ::
+return	573.6363
+::Onset of trial expected: [N/A SELF PACED]  recorded: 574.3531 ::
+trial	574.3531
+::Onset of return expected: [N/A SELF PACED]  recorded: 575.0698 ::
+return	575.0698
+::Onset of trial expected: [N/A SELF PACED]  recorded: 575.8034 ::
+trial	575.8034
+::Onset of return expected: [N/A SELF PACED]  recorded: 577.3869 ::
+return	577.3869
+::Onset of trial expected: [N/A SELF PACED]  recorded: 578.1037 ::
+trial	578.1037
+::Onset of return expected: [N/A SELF PACED]  recorded: 579.6373 ::
+return	579.6373
+::Onset of trial expected: [N/A SELF PACED]  recorded: 580.3541 ::
+trial	580.3541
+::Onset of return expected: [N/A SELF PACED]  recorded: 581.0707 ::
+return	581.0707
+::Onset of trial expected: [N/A SELF PACED]  recorded: 581.7992 ::
+trial	581.7992
+::Onset of return expected: [N/A SELF PACED]  recorded: 582.5156 ::
+return	582.5156
+::Onset of trial expected: [N/A SELF PACED]  recorded: 583.2321 ::
+trial	583.2321
+::Onset of return expected: [N/A SELF PACED]  recorded: 583.9545 ::
+return	583.9545
+::Onset of rest expected: [N/A SELF PACED]  recorded: 584.6713 ::
+rest	584.6713
+::Onset of cue expected: [N/A SELF PACED]  recorded: 596.6899 ::
+cue	596.6899
+::Onset of trial expected: [N/A SELF PACED]  recorded: 597.2065 ::
+trial	597.2065
+::Onset of return expected: [N/A SELF PACED]  recorded: 598.2936 ::
+return	598.2936
+::Onset of trial expected: [N/A SELF PACED]  recorded: 599.0101 ::
+trial	599.0101
+::Onset of return expected: [N/A SELF PACED]  recorded: 599.7266 ::
+return	599.7266
+::Onset of trial expected: [N/A SELF PACED]  recorded: 600.4596 ::
+trial	600.4596
+::Onset of return expected: [N/A SELF PACED]  recorded: 601.2426 ::
+return	601.2426
+::Onset of trial expected: [N/A SELF PACED]  recorded: 601.9591 ::
+trial	601.9591
+::Onset of return expected: [N/A SELF PACED]  recorded: 602.8087 ::
+return	602.8087
+::Onset of trial expected: [N/A SELF PACED]  recorded: 603.5252 ::
+trial	603.5252
+::Onset of return expected: [N/A SELF PACED]  recorded: 604.3249 ::
+return	604.3249
+::Onset of trial expected: [N/A SELF PACED]  recorded: 605.0413 ::
+trial	605.0413
+::Onset of return expected: [N/A SELF PACED]  recorded: 606.7914 ::
+return	606.7914
+::Onset of trial expected: [N/A SELF PACED]  recorded: 607.5081 ::
+trial	607.5081
+::Onset of return expected: [N/A SELF PACED]  recorded: 608.4917 ::
+return	608.4917
+::Onset of trial expected: [N/A SELF PACED]  recorded: 609.1251 ::
+trial	609.1251
+::Onset of return expected: [N/A SELF PACED]  recorded: 610.3919 ::
+return	610.3919
+::Onset of trial expected: [N/A SELF PACED]  recorded: 611.1086 ::
+trial	611.1086
+::Onset of return expected: [N/A SELF PACED]  recorded: 611.8255 ::
+return	611.8255
+::Onset of trial expected: [N/A SELF PACED]  recorded: 612.5422 ::
+trial	612.5422
+::Onset of return expected: [N/A SELF PACED]  recorded: 613.3757 ::
+return	613.3757
+::Onset of trial expected: [N/A SELF PACED]  recorded: 614.0925 ::
+trial	614.0925
+::Onset of return expected: [N/A SELF PACED]  recorded: 614.8093 ::
+return	614.8093
+::Onset of trial expected: [N/A SELF PACED]  recorded: 615.5378 ::
+trial	615.5378
+::Onset of return expected: [N/A SELF PACED]  recorded: 616.2542 ::
+return	616.2542
+::Onset of trial expected: [N/A SELF PACED]  recorded: 617.0263 ::
+trial	617.0263
+::Onset of return expected: [N/A SELF PACED]  recorded: 618.2932 ::
+return	618.2932
+::Onset of trial expected: [N/A SELF PACED]  recorded: 619.0767 ::
+trial	619.0767
+::Onset of return expected: [N/A SELF PACED]  recorded: 619.9101 ::
+return	619.9101
+::Onset of trial expected: [N/A SELF PACED]  recorded: 620.6268 ::
+trial	620.6268
+::Onset of return expected: [N/A SELF PACED]  recorded: 621.3525 ::
+return	621.3525
+::Onset of trial expected: [N/A SELF PACED]  recorded: 622.0691 ::
+trial	622.0691
+::Onset of return expected: [N/A SELF PACED]  recorded: 622.9272 ::
+return	622.9272
+::Onset of rest expected: [N/A SELF PACED]  recorded: 623.6439 ::
+rest	623.6439
