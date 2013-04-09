@@ -8,7 +8,7 @@ def autolabel(rects):
         ax.text(rect.get_x()+rect.get_width()/2., 1.05*height, '%d'%int(height),
                 ha='center', va='bottom')
 
-subject_list = ['lap002','lap004','lap005','lap006','lap007_behav','lap008_behav']
+subject_list = ['lap002','lap004','lap005','lap006','lap007_behav','lap008_behav','lap009_behav']
 
 data = {}
 data['lap002'] = [(['lap002_run1_cb1'],'vsa_sequence'),(['lap002_run2_cb1'],'vsa_perturb')]
@@ -17,6 +17,7 @@ data['lap005'] = [(['lap005_run1_cb1'],'vsa_sequence'),(['lap005_run2_cb1'],'vsa
 data['lap006'] = [(['lap006_run2_cb2'],'vsa_sequence'),(['lap006_run1_cb2'],'vsa_perturb')]
 data['lap007_behav'] = [(['lap007_behav_run1_cb1'],'vsa_sequence'),(['lap007_behav_run2_cb1'],'vsa_perturb')]
 data['lap008_behav'] = [(['lap008_behav_run2_cb2'],'vsa_sequence'),(['lap008_behav_run1_cb2'],'vsa_perturb')]
+data['lap009_behav'] = [(['lap009_behav_run1_cb1'],'vsa_sequence'),(['lap009_behav_run2_cb1'],'vsa_perturb')]
 
 condition={'RD':1,'SD':2,'RI':3, 1:'RD',2:'SD',3:'RI'}
 

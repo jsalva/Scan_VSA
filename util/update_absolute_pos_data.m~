@@ -1,11 +1,9 @@
-function position = update_absolute_pos_data_perturb(position,reverse_y,PERTURBATION_ANGLE)
-%save local copy of current time since start
-t = GetSecs()-position.t0; 
-
-global TARGET_DIST_FROM_CENTER_MM
-global JOYSTICK_MAGNITUDE_SCALING
+function position = update_absolute_pos_data(position,reverse_y)
 %obtain pixel to distance conversion from position object properties
 %(for readability)
+global TARGET_DIST_FROM_CENTER_MM
+global JOYSTICK_MAGNITUDE_SCALING
+
 x_pix2mm = position.screen_properties.width_mm/position.screen_properties.width_res_pix;
 y_pix2mm = position.screen_properties.height_mm/position.screen_properties.height_res_pix;
 
@@ -51,7 +49,7 @@ elseif th_restricted <= th_crit
 end
 [th_max,mg_max] = cart2pol(x_max,y_max);
 
-mg_ratio = (mg/mg_max)*JOYSTICK_MAGNITUDE_SCALING;
+mg_ratio = mg/mg_max*JOYSTICK_MAGNITUDE_SCALING;
 current_radius_mm = TARGET_DIST_FROM_CENTER_MM*mg_ratio;
 [x_mm,y_mm] = pol2cart(th,current_radius_mm);
 x_pix = x_mm/x_pix2mm;
@@ -63,33 +61,17 @@ end
 %get current position coords
 x_pos_pix = x_pix + origin(3);
 y_pos_pix = y_pix + origin(4);
-%convert position vector from cartesian (x,y) to polar (theta,magnitude)
-
 
 
 %convert to a psychtoolbox "rect"
-
+position.rect(size(position.rect,1)+1,:) = [0 0 x_pos_pix y_pos_pix];
 
 %convert pixel coordinates to x and y components as vector from orgin
 x_pos_mm = (x_pos_pix - origin(3))*x_pix2mm;
 y_pos_mm = (origin(4) - y_pos_pix)*y_pix2mm;
 
-[theta,mag] = cart2pol(x_pos_mm,y_pos_mm);
-
-if theta <= 0
-    theta = theta+2*pi();
-end
-
-theta = theta + PERTURBATION_ANGLE;
-
-position.polar(size(position.polar,1)+1,:)= [theta,mag];
-
-[perturb_x_mm,perturb_y_mm] = pol2cart(theta,mag);
-perturb_x_pix = perturb_x_mm/x_pix2mm+origin(3);
-perturb_y_pix = origin(4) - perturb_y_mm/y_pix2mm;
-        
-position.rect(size(position.rect,1)+1,:) = [0 0 perturb_x_pix perturb_y_pix];
-
+%save local copy of current time since start
+t = GetSecs()-position.t0; 
 
 %save [x,y,t] for current moment
 position.xyt(size(position.xyt,1)+1,:) = [x_pos_mm,y_pos_mm,t];
@@ -110,6 +92,13 @@ ddydt = ddxyt(2)/dxyt(3);
 %save [x'',y'',t] for current moment
 position.accelxyt(size(position.accelxyt,1)+1,:) = [ddxdt ddydt t];
 
+%convert position vector from cartesian (x,y) to polar (theta,magnitude)
+[theta,mag] = cart2pol(position.xyt(size(position.xyt,1),1),position.xyt(size(position.xyt,1),2));
+if theta <= 0
+    theta = theta+2*pi();
+end
+position.polar(size(position.polar,1)+1,:)= [theta,mag];
+
 %save local copy of current position
 x_y_coords = [x_pos_mm,y_pos_mm];
 
@@ -120,7 +109,6 @@ x_y_coords = [x_pos_mm,y_pos_mm];
 projection = (x_y_coords*[unitx unity]')*[unitx unity];
 
 [null,prev_magproj] = cart2pol(position.proj_onto_targ(size(position.proj_onto_targ,1),1),position.proj_onto_targ(size(position.proj_onto_targ,1),2));
-
 position.proj_onto_targ(size(position.proj_onto_targ,1)+1,:) = projection;
 
 %calculate error vector
@@ -142,6 +130,7 @@ signproj = sign([unitx,unity]*position.proj_onto_targ(size(position.proj_onto_ta
 %direction
 [null,magerror] = cart2pol(error(1),error(2));
 
+
 %calculate error in theta between current position and target position
 %(+ = clockwise error, - = counterclockwise error)
 %used to get "endpoint error"
@@ -149,5 +138,4 @@ position.error_theta(length(position.error_theta)+1) = atan2((magerror*signerror
 position.dproj_vec(length(position.dproj_vec)+1) = abs(magproj - prev_magproj);
 position.magerror_vec(length(position.magerror_vec)+1) = magerror;
 position.magproj_vec(length(position.magproj_vec)+1) = magproj;
-
 end
